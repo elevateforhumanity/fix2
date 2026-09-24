@@ -100,69 +100,6 @@ export async function enrollCertiport(
 }
 
 /**
- * HSI (Health & Safety Institute) Enrollment Workflow
- */
-export async function enrollHSI(
-  request: EnrollmentRequest
-): Promise<EnrollmentResult> {
-  const supabase = createClient();
-
-  try {
-    const { data: student } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', request.studentId)
-      .single();
-
-    if (!student) {
-      throw new Error('Student not found');
-    }
-
-    const { data: enrollment, error: enrollmentError } = await supabase
-      .from('partner_lms_enrollments')
-      .insert({
-        provider_id: request.providerId,
-        student_id: request.studentId,
-        program_id: request.programId,
-        status: 'pending',
-        enrolled_at: new Date().toISOString(),
-        metadata: {
-          provider_type: 'hsi',
-          enrollment_method: 'manual',
-        },
-      })
-      .select()
-      .single();
-
-    if (enrollmentError) {
-      throw enrollmentError;
-    }
-
-    if (request.sendWelcomeEmail) {
-      await supabase.functions.invoke('send-partner-welcome-email', {
-        body: {
-          enrollment_id: enrollment.id,
-          provider_id: request.providerId,
-          student_id: request.studentId,
-        },
-      });
-    }
-
-    return {
-      success: true,
-      enrollmentId: enrollment.id,
-      message:
-        'HSI enrollment created. Student will receive access instructions via email.',
-    };
-  } catch (error: unknown) {
-    return {
-      success: false,
-      error: error instanceof Error ? error.message : String(error),
-    };
-  }
-}
-
-/**
  * JRI (Janitorial Resource Institute) Enrollment Workflow
  */
 export async function enrollJRI(
@@ -451,8 +388,6 @@ export async function enrollStudent(
     switch (provider.provider_type) {
       case 'certiport':
         return await enrollCertiport(request);
-      case 'hsi':
-        return await enrollHSI(request);
       case 'jri':
         return await enrollJRI(request);
       case 'nrf_rise':
