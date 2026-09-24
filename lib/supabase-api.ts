@@ -6,14 +6,11 @@ import { createClient } from '@supabase/supabase-js';
  * to avoid build-time errors when environment variables aren't available
  */
 export function createSupabaseClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://Content.supabase.co';
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'Content-service-key';
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  // Only throw error at runtime in production, not during build
-  if ((!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) &&
-      process.env.NODE_ENV === 'production' &&
-      typeof window !== 'undefined') {
-    throw new Error('Missing Supabase environment variables');
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
   }
 
   return createClient(supabaseUrl, supabaseKey, {
