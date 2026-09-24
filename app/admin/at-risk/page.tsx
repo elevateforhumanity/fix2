@@ -30,62 +30,23 @@ export default async function AtRiskStudentsPage() {
     redirect('/unauthorized');
   }
 
-  // Fetch at-risk students
-  const { data: atRiskStudents } = await supabase
+  // student_risk_status is the canonical production risk source. It has no
+  // declared FK relationships, so read its denormalized profile/program fields directly.
+  const { data: atRiskStudents, error: atRiskError } = await supabase
     .from('student_risk_status')
-    .select(
-      `
-      *,
-      enrollments (
-        id,
-        start_date,
-        profiles!enrollments_student_id_fkey (
-          id,
-          first_name,
-          last_name,
-          email,
-          phone
-        ),
-        programs (
-          id,
-          name
-        ),
-        student_funding_assignments (
-          funding_sources (
-            name,
-            code
-          )
-        )
-      )
-    `
-    )
+    .select('*')
     .eq('status', 'at_risk')
     .order('overdue_count', { ascending: false });
 
-  // Fetch needs action students
-  const { data: needsActionStudents } = await supabase
+  if (atRiskError) throw atRiskError;
+
+  const { data: needsActionStudents, error: needsActionError } = await supabase
     .from('student_risk_status')
-    .select(
-      `
-      *,
-      enrollments (
-        id,
-        start_date,
-        profiles!enrollments_student_id_fkey (
-          id,
-          first_name,
-          last_name,
-          email
-        ),
-        programs (
-          id,
-          name
-        )
-      )
-    `
-    )
+    .select('*')
     .eq('status', 'needs_action')
     .order('overdue_count', { ascending: false });
+
+  if (needsActionError) throw needsActionError;
 
   // Fetch programs with low completion
   const { data: programStats } = await supabase.from('enrollments').select(`
@@ -203,11 +164,9 @@ export default async function AtRiskStudentsPage() {
           {atRiskStudents && atRiskStudents.length > 0 ? (
             <div className="space-y-4">
               {atRiskStudents.map((risk: unknown) => {
-                const enrollment = risk.enrollments;
-                const student = enrollment?.profiles;
-                const program = enrollment?.programs;
-                const funding =
-                  enrollment?.student_funding_assignments?.[0]?.funding_sources;
+                const student = risk.profiles || { id: risk.user_id, first_name: risk.first_name, last_name: risk.last_name, email: risk.email, phone: risk.phone };
+                const program = { id: risk.program_id, name: risk.programs || risk.code };
+                const funding = { code: risk.student_funding_assignments };
 
                 return (
                   <div
@@ -308,9 +267,8 @@ export default async function AtRiskStudentsPage() {
             </h2>
             <div className="space-y-3">
               {needsActionStudents.slice(0, 10).map((risk: unknown) => {
-                const enrollment = risk.enrollments;
-                const student = enrollment?.profiles;
-                const program = enrollment?.programs;
+                const student = risk.profiles || { id: risk.user_id, first_name: risk.first_name, last_name: risk.last_name, email: risk.email };
+                const program = { id: risk.program_id, name: risk.programs || risk.code };
 
                 return (
                   <div
