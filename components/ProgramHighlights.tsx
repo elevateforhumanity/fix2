@@ -14,32 +14,32 @@ const defaultHighlights: Highlight[] = [
   {
     title: "100% Free Training",
     description: "No tuition, no fees, no debt. Fully funded through WIOA, WRG, and JRI programs.",
-    image: "/images/programs/program-placeholder.jpg"
+    image: "/images/artlist/hero-training-3.jpg"
   },
   {
     title: "Earn While You Learn",
     description: "Get paid during training through work-study programs and apprenticeships.",
-    image: "/images/programs/program-placeholder.jpg"
+    image: "/images/artlist/hero-training-3.jpg"
   },
   {
     title: "Industry Certification",
     description: "Earn recognized certifications that employers value and actively seek.",
-    image: "/images/programs/program-placeholder.jpg"
+    image: "/images/artlist/hero-training-3.jpg"
   },
   {
     title: "Job Placement Support",
     description: "We connect you with employers hiring in your field. Resume and interview prep included.",
-    image: "/images/programs/program-placeholder.jpg"
+    image: "/images/artlist/hero-training-3.jpg"
   },
   {
     title: "Hands-On Experience",
     description: "Real-world training with actual equipment and industry-standard tools.",
-    image: "/images/programs/program-placeholder.jpg"
+    image: "/images/artlist/hero-training-3.jpg"
   },
   {
     title: "Flexible Scheduling",
     description: "Day, evening, and weekend classes available to fit your life.",
-    image: "/images/programs/program-placeholder.jpg"
+    image: "/images/artlist/hero-training-3.jpg"
   }
 ];
 
@@ -86,7 +86,7 @@ export default function ProgramHighlights({ highlights = defaultHighlights }: Pr
             <div>
               <div className="relative w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden">
                 <Image
-                  src="/images/programs/program-placeholder.jpg"
+                  src="/images/artlist/hero-training-3.jpg"
                   alt="Small class sizes"
                   fill
                   className="object-cover"
@@ -98,7 +98,7 @@ export default function ProgramHighlights({ highlights = defaultHighlights }: Pr
             <div>
               <div className="relative w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden">
                 <Image
-                  src="/images/programs/program-placeholder.jpg"
+                  src="/images/artlist/hero-training-3.jpg"
                   alt="Expert instructors"
                   fill
                   className="object-cover"
@@ -110,7 +110,7 @@ export default function ProgramHighlights({ highlights = defaultHighlights }: Pr
             <div>
               <div className="relative w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden">
                 <Image
-                  src="/images/programs/program-placeholder.jpg"
+                  src="/images/artlist/hero-training-3.jpg"
                   alt="Modern equipment"
                   fill
                   className="object-cover"
@@ -122,7 +122,7 @@ export default function ProgramHighlights({ highlights = defaultHighlights }: Pr
             <div>
               <div className="relative w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden">
                 <Image
-                  src="/images/programs/program-placeholder.jpg"
+                  src="/images/artlist/hero-training-3.jpg"
                   alt="Job placement"
                   fill
                   className="object-cover"
