@@ -102,7 +102,7 @@ export default async function EmployerDashboardOrchestrated() {
             <div
               className={`rounded-lg shadow-sm border p-6 ${
                 (applications?.length || 0) > 0
-                  ? 'bg-green-50 border-green-600'
+                  ? 'bg-white border-emerald-300'
                   : 'bg-white border-slate-200'
               }`}
             >
@@ -138,19 +138,19 @@ export default async function EmployerDashboardOrchestrated() {
             <div
               className={`rounded-lg shadow-sm border p-6 ${
                 apprenticeshipProgram
-                  ? 'bg-purple-50 border-purple-600'
+                  ? 'bg-white border-blue-300'
                   : 'bg-white border-slate-200'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
                 <TrendingUp
                   className={`h-8 w-8 ${
-                    apprenticeshipProgram ? 'text-purple-600' : 'text-slate-400'
+                    apprenticeshipProgram ? 'text-blue-600' : 'text-slate-400'
                   }`}
                 />
                 <span
                   className={`text-3xl font-bold ${
-                    apprenticeshipProgram ? 'text-purple-900' : 'text-slate-900'
+                    apprenticeshipProgram ? 'text-slate-900' : 'text-slate-900'
                   }`}
                 >
                   {apprenticeshipProgram ? '1' : '0'}
