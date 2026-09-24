@@ -22,45 +22,45 @@ export function AIInstructorClient({
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [currentMessage, setCurrentMessage] = useState('');
   const [isMuted, setIsMuted] = useState(false);
-  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const speak = (text: string) => {
+  const speak = async (text: string) => {
     if (isMuted || !autoSpeak) return;
-
-    // Cancel any ongoing speech
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9;
-    utterance.pitch = 1;
-    utterance.volume = 1;
-
-    utterance.onstart = () => {
-      setIsSpeaking(true);
-      setIsVisible(true);
-      setCurrentMessage(text);
-    };
-
-    utterance.onend = () => {
+    stopSpeaking();
+    setIsVisible(true);
+    setCurrentMessage(text);
+    setIsSpeaking(true);
+    try {
+      const response = await fetch('/api/text-to-speech', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      });
+      if (!response.ok) throw new Error('Narration unavailable');
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      audio.onended = () => {
+        setIsSpeaking(false);
+        URL.revokeObjectURL(url);
+      };
+      audio.onerror = () => {
+        setIsSpeaking(false);
+        URL.revokeObjectURL(url);
+      };
+      await audio.play();
+    } catch {
       setIsSpeaking(false);
-      // Keep visible for a few seconds after speaking
-      setTimeout(() => {
-        if (!isSpeaking) {
-          setIsVisible(false);
-        }
-      }, 3000);
-    };
-
-    utterance.onerror = () => {
-      setIsSpeaking(false);
-    };
-
-    utteranceRef.current = utterance;
-    window.speechSynthesis.speak(utterance);
+    }
   };
 
   const stopSpeaking = () => {
-    window.speechSynthesis.cancel();
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      audioRef.current = null;
+    }
     setIsSpeaking(false);
   };
 
@@ -82,7 +82,7 @@ export function AIInstructorClient({
 
     return () => {
       window.removeEventListener('ai-instructor-speak', handleSpeakEvent as EventListener);
-      window.speechSynthesis.cancel();
+      stopSpeaking();
     };
   }, [lessonTitle, autoSpeak]);
 
