@@ -63,7 +63,7 @@ export const documentCategories: DocumentCategoryInfo[] = [
     id: "credential-partners",
     title: "Credential Partner Docs",
     description:
-      "Milady, HSI, CareerSafe, Certiport, Rise, National Drug Screening agreements and guides.",
+      "Milady, CareerSafe, Certiport, Rise, National Drug Screening agreements and guides.",
     icon: "🎓",
   },
   {
@@ -201,15 +201,6 @@ export const documents: Document[] = [
       "Agreement and access guide for Milady beauty/barber content.",
     url: "/docs/credentials/milady-partnership.pdf",
     tags: ["Milady", "Barber", "Beauty"],
-  },
-  {
-    id: "doc-hsi-careersafe",
-    category: "credential-partners",
-    title: "HSI & CareerSafe OSHA 10/30 Guide",
-    description:
-      "How to provision OSHA 10/30 credentials through HSI and CareerSafe.",
-    url: "/docs/credentials/hsi-careersafe-guide.pdf",
-    tags: ["HSI", "CareerSafe", "OSHA"],
   },
 
   // IRS VITA
