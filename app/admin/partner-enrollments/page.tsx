@@ -26,7 +26,7 @@ export default async function PartnerEnrollmentsPage() {
   const { data: enrollments, count } = await supabase
     .from('partner_course_enrollments')
     .select(
-      '*, student:profiles(full_name, email), course:partner_lms_courses(course_name)',
+      '*, student:profiles!partner_course_enrollments_user_id_fkey(full_name, email), course:partner_lms_courses(course_name)',
       { count: 'exact' }
     )
     .order('created_at', { ascending: false });
@@ -61,7 +61,7 @@ export default async function PartnerEnrollmentsPage() {
                     <td className="px-6 py-4">{e.student?.full_name}</td>
                     <td className="px-6 py-4">{e.course?.course_name}</td>
                     <td className="px-6 py-4">{e.status}</td>
-                    <td className="px-6 py-4">{e.progress_percentage || 0}%</td>
+                    <td className="px-6 py-4">{e.progress_percent || 0}%</td>
                   </tr>
                 ))}
               </tbody>
