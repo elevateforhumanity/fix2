@@ -37,7 +37,7 @@ export function ProgramAppointmentBanner() {
           </ol>
         </div>
 
-        <div className="flex gap-2 sm:flex-col sm:min-w-[220px]">
+        <div className="flex flex-col gap-2 sm:min-w-[220px]">
           <Link
             href="/apply"
             className="inline-flex items-center justify-center rounded-xl bg-amber-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
