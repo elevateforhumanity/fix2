@@ -1,6 +1,6 @@
 // lib/partners/link-based-integration.ts
 // Link-based partner integration system (no API keys needed)
-// Partners: HSI, NRF, JRI, CareerSafe, Milady
+// Partners: NRF, JRI, CareerSafe, Milady
 
 export interface PartnerCourse {
   id: string;
@@ -29,55 +29,6 @@ export interface PartnerEnrollment {
   completedAt?: Date;
   certificateUrl?: string;
 }
-
-// HSI (Health & Safety Institute) Courses
-export const HSI_COURSES: PartnerCourse[] = [
-  {
-    id: 'hsi-cpr-aed',
-    partnerId: 'hsi',
-    partnerName: 'Health & Safety Institute',
-    title: 'CPR/AED Certification',
-    description: 'American Heart Association CPR and AED certification training',
-    category: 'Healthcare',
-    duration: '4 hours',
-    price: 0, // Free through WIOA
-    enrollmentUrl: 'https://www.hsi.com/courses/cpr-aed',
-    loginUrl: 'https://www.hsi.com/login',
-    supportUrl: 'https://www.hsi.com/support',
-    certificationType: 'CPR/AED Certification',
-    isActive: true,
-  },
-  {
-    id: 'hsi-first-aid',
-    partnerId: 'hsi',
-    partnerName: 'Health & Safety Institute',
-    title: 'First Aid Certification',
-    description: 'Comprehensive first aid training and certification',
-    category: 'Healthcare',
-    duration: '4 hours',
-    price: 0,
-    enrollmentUrl: 'https://www.hsi.com/courses/first-aid',
-    loginUrl: 'https://www.hsi.com/login',
-    supportUrl: 'https://www.hsi.com/support',
-    certificationType: 'First Aid Certification',
-    isActive: true,
-  },
-  {
-    id: 'hsi-bloodborne-pathogens',
-    partnerId: 'hsi',
-    partnerName: 'Health & Safety Institute',
-    title: 'Bloodborne Pathogens Training',
-    description: 'OSHA-compliant bloodborne pathogens training',
-    category: 'Healthcare',
-    duration: '2 hours',
-    price: 0,
-    enrollmentUrl: 'https://www.hsi.com/courses/bloodborne-pathogens',
-    loginUrl: 'https://www.hsi.com/login',
-    supportUrl: 'https://www.hsi.com/support',
-    certificationType: 'Bloodborne Pathogens Certificate',
-    isActive: true,
-  },
-];
 
 // NRF (National Restaurant Foundation) Courses
 export const NRF_COURSES: PartnerCourse[] = [
@@ -322,7 +273,6 @@ export const MILADY_COURSES: PartnerCourse[] = [
 
 // All partner courses combined
 export const ALL_PARTNER_COURSES: PartnerCourse[] = [
-  ...HSI_COURSES,
   ...NRF_COURSES,
   ...JRI_COURSES,
   ...CAREERSAFE_COURSES,
