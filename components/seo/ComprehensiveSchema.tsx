@@ -17,9 +17,9 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
     '@context': 'https://schema.org',
     '@type': ['Organization', 'EducationalOrganization', 'LocalBusiness'],
     '@id': `${baseUrl}/#organization`,
-    name: 'Elevate for Humanity Career & Training Institute',
+    name: 'Elevate for Humanity Career & Technical Institute',
     alternateName: 'Elevate for Humanity',
-    legalName: 'Elevate for Humanity Career & Training Institute',
+    legalName: 'Elevate for Humanity Career & Technical Institute',
     url: baseUrl,
     logo: {
       '@type': 'ImageObject',
@@ -42,10 +42,10 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
     // Address (LocalBusiness)
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '3737 N Meridian St',
+      streetAddress: '120 E Market St, Suite 930',
       addressLocality: 'Indianapolis',
       addressRegion: 'IN',
-      postalCode: '46208',
+      postalCode: '46204',
       addressCountry: 'US',
     },
 
