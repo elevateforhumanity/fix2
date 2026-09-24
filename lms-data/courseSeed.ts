@@ -13,11 +13,11 @@ export type SeedContentType =
 export interface LessonSeed {
   title: string;
   contentType: SeedContentType;
-  // For now we leave URLs null; once you have real links (HSI, Milady, etc.),
+  // For now we leave URLs null; once you have real links (Milady, CareerSafe, etc.),
   // you can paste them here and re-run the seed.
   contentUrl?: string | null;
   durationMinutes?: number | null;
-  partnerTag?: string; // "HSI", "Milady", "CareerSafe", "Certiport", "NationalDrug", "IRS-VITA", etc.
+  partnerTag?: string; // "Internal", "Milady", "CareerSafe", "Certiport", "NationalDrug", "IRS-VITA", etc.
 }
 
 export interface ModuleSeed {
@@ -64,7 +64,7 @@ export const programSeeds: ProgramSeed[] = [
         ],
       },
       {
-        title: "Core CNA Theory (HSI / Choice Medical)",
+        title: "Core CNA Theory (Healthcare)",
         orderIndex: 2,
         description:
           "Credential-aligned CNA theory content delivered through your partner curriculum.",
@@ -72,19 +72,19 @@ export const programSeeds: ProgramSeed[] = [
           {
             title: "CNA Role, Scope of Practice & Ethics",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
           {
             title: "Infection Control & Standard Precautions",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
           {
             title: "Vital Signs & Basic Procedures",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
         ],
@@ -246,13 +246,13 @@ export const programSeeds: ProgramSeed[] = [
           {
             title: "HVAC Fundamentals & Systems Overview",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
           {
             title: "Electrical Basics for HVAC",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
         ],
@@ -372,13 +372,13 @@ export const programSeeds: ProgramSeed[] = [
           {
             title: "Plumbing & Electrical Basics",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
           {
             title: "Preventive Maintenance",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
         ],
@@ -423,7 +423,7 @@ export const programSeeds: ProgramSeed[] = [
           {
             title: "Customer Service & Communication",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
         ],
@@ -450,7 +450,7 @@ export const programSeeds: ProgramSeed[] = [
           {
             title: "Basic Patient Interaction & Safety",
             contentType: "link",
-            partnerTag: "HSI",
+            partnerTag: "Internal",
             durationMinutes: 30,
           },
         ],
