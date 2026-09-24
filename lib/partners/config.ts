@@ -26,12 +26,6 @@ export function getPartnerConfig(partner: PartnerType): PartnerConfig {
   };
 
   switch (partner) {
-    case "hsi":
-      config.baseUrl = process.env.HSI_API_BASE_URL || "";
-      config.apiKey = process.env.HSI_API_KEY;
-      config.apiSecret = process.env.HSI_API_SECRET;
-      config.orgId = process.env.HSI_ORGANIZATION_ID;
-      break;
 
     case "certiport":
       config.baseUrl = process.env.CERTIPORT_API_BASE_URL || "";
