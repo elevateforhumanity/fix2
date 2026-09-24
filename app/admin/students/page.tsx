@@ -42,24 +42,41 @@ export default async function StudentsPage() {
     redirect('/unauthorized');
   }
 
-  // Fetch students with enrollment data
-  const { data: students, count: totalStudents } = await supabase
+  // Fetch students and enrollments explicitly. Production enrollments has no
+  // declared FK to profiles/programs, so relationship embedding is not reliable.
+  const { data: studentRows, count: totalStudents, error: studentsError } = await supabase
     .from('profiles')
-    .select(
-      `
-      *,
-      enrollments:enrollments(
-        id,
-        status,
-        progress_percent,
-        program:programs(name, slug)
-      )
-    `,
-      { count: 'exact' }
-    )
+    .select('*', { count: 'exact' })
     .eq('role', 'student')
     .order('created_at', { ascending: false })
     .limit(50);
+
+  if (studentsError) throw studentsError;
+
+  const studentIds = (studentRows ?? []).map((row: any) => row.id);
+  const { data: enrollmentRows, error: enrollmentsError } = studentIds.length
+    ? await supabase.from('enrollments').select('id, user_id, student_id, program_id, status, progress_percent').or(`user_id.in.(${studentIds.join(',')}),student_id.in.(${studentIds.join(',')})`)
+    : { data: [], error: null };
+
+  if (enrollmentsError) throw enrollmentsError;
+
+  const programIds = [...new Set((enrollmentRows ?? []).map((row: any) => row.program_id).filter(Boolean))];
+  const { data: programs, error: programsError } = programIds.length
+    ? await supabase.from('programs').select('id, name, slug').in('id', programIds)
+    : { data: [], error: null };
+
+  if (programsError) throw programsError;
+
+  const programsById = new Map((programs ?? []).map((row: any) => [row.id, row]));
+  const enrollmentsByStudent = new Map<string, any[]>();
+  for (const enrollment of enrollmentRows ?? []) {
+    const studentId = enrollment.student_id || enrollment.user_id;
+    if (!studentId) continue;
+    const list = enrollmentsByStudent.get(studentId) ?? [];
+    list.push({ ...enrollment, program: programsById.get(enrollment.program_id) });
+    enrollmentsByStudent.set(studentId, list);
+  }
+  const students = (studentRows ?? []).map((row: any) => ({ ...row, enrollments: enrollmentsByStudent.get(row.id) ?? [] }));
 
   // Get active enrollments count
   const { count: activeEnrollments } = await supabase
