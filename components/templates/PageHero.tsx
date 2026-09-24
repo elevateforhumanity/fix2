@@ -17,10 +17,10 @@ export default function PageHero({ title, description, forceHero }: PageHeroProp
   // No hero for this page
   if (!heroSrc) {
     return title ? (
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12">
+      <div className="border-b border-slate-200 bg-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-          {description && <p className="text-xl text-blue-100">{description}</p>}
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-slate-950">{title}</h1>
+          {description && <p className="text-xl text-slate-600 max-w-3xl">{description}</p>}
         </div>
       </div>
     ) : null;
@@ -54,6 +54,7 @@ export default function PageHero({ title, description, forceHero }: PageHeroProp
       )}
 
       {title && (
+        <div className="absolute inset-0 bg-slate-950/55" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{title}</h1>
