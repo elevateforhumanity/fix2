@@ -50,7 +50,7 @@ export default async function Page() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
+      <section className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[520px] flex items-center justify-center text-white overflow-hidden">
         <Image
           src="/images/artlist/hero-training-1.jpg"
           alt="Users"
@@ -101,7 +101,7 @@ export default async function Page() {
       <div className="container mx-auto py-8 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 mb-8">
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-sm font-medium text-gray-600">
