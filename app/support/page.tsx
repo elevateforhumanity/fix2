@@ -210,7 +210,7 @@ export default async function SupportPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-br from-purple-600 to-purple-800">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-slate-900">
         <div className="mx-auto w-full max-w-4xl text-center px-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
             Ready to Get Started?
