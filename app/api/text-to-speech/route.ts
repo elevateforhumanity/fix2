@@ -8,7 +8,10 @@ import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: NextRequest) {
   try {
-    const { text, voiceId = 'EXAVITQu4vr4xnSDxMaL' } = await request.json(); // Default: Bella voice
+    const { text } = await request.json();
+    // One canonical production voice. Do not accept per-request voice changes;
+    // that caused narration to change between lessons/providers.
+    const voiceId = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
 
     // Option 1: ElevenLabs API (Premium, best quality)
     if (process.env.ELEVENLABS_API_KEY) {
@@ -23,10 +26,10 @@ export async function POST(request: NextRequest) {
           },
           body: JSON.stringify({
             text,
-            model_id: 'eleven_monolingual_v1',
+            model_id: 'eleven_multilingual_v2',
             voice_settings: {
-              stability: 0.5,
-              similarity_boost: 0.5,
+              stability: 0.72,
+              similarity_boost: 0.78,
             },
           }),
         }
@@ -46,49 +49,16 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Option 2: Google Cloud Text-to-Speech (Good quality, affordable)
-    if (process.env.GOOGLE_CLOUD_API_KEY) {
-      const response = await fetch(
-        `https://texttospeech.googleapis.com/v1/text:synthesize?key=${process.env.GOOGLE_CLOUD_API_KEY}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            input: { text },
-            voice: {
-              languageCode: 'en-US',
-              name: 'en-US-Neural2-F', // Female voice
-              ssmlGender: 'FEMALE',
-            },
-            audioConfig: {
-              audioEncoding: 'MP3',
-              speakingRate: 0.9,
-              pitch: 0,
-            },
-          }),
-        }
-      );
+    // Do not silently switch providers or browser voices. A provider change is
+    // audible to learners and breaks timing/caption consistency.
+    // Return a retryable error so the media worker can retry the canonical voice.
 
-      const data = await response.json();
-
-      if (data.audioContent) {
-        const audioBuffer = Buffer.from(data.audioContent, 'base64');
-
-        return new NextResponse(audioBuffer, {
-          headers: {
-            'Content-Type': 'audio/mpeg',
-            'Content-Length': audioBuffer.length.toString(),
-          },
-        });
-      }
-    }
-
-    // Option 3: Return error if no API keys configured
+    // Return error if the canonical production TTS provider is not configured
     return NextResponse.json(
       {
         error:
-          'No TTS API configured. Add ELEVENLABS_API_KEY or GOOGLE_CLOUD_API_KEY to environment variables.',
-        fallback: 'Browser speech synthesis will be used instead.',
+          'Canonical TTS provider is not configured. Add ELEVENLABS_API_KEY (and optionally ELEVENLABS_VOICE_ID).',
+        retryable: true,
       },
       { status: 503 }
     );
