@@ -230,7 +230,7 @@ export default function HowItWorksPage() {
                 </h3>
                 <p className="text-gray-700 mb-3">
                   Once approved, you are enrolled with an accredited training
-                  provider (Milady, HSI, CareerSafe, etc.) or apprenticeship
+                  provider (Milady, CareerSafe, Certiport, etc.) or apprenticeship
                   sponsor.
                 </p>
                 <p className="text-sm text-gray-600">
