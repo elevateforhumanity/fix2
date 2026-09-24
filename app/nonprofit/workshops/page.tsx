@@ -33,7 +33,7 @@ export default function WorkshopsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-white text-center">
+      <section className="py-20 px-4 bg-white text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
             Workshops
