@@ -292,6 +292,15 @@ export default async function StudentDashboardOrchestrated() {
                   />
                 )}
 
+                {activeEnrollment?.program_slug?.includes('barber') && (
+                  <SectionCard
+                    title="Apprenticeship Progress"
+                    description="View host-shop sign-offs, practical services and Appendix A progress"
+                    href="/lms/apprenticeship-progress"
+                    icon={<Target className="h-6 w-6" />}
+                  />
+                )}
+
                 {stateData.availableSections.includes('certificates') && (
                   <SectionCard
                     title="My Certificates"
