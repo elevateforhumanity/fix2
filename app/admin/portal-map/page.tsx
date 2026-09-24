@@ -280,12 +280,6 @@ const adminRoutes: AdminRoute[] = [
         status: 'active',
       },
       {
-        name: 'HSI Enrollments',
-        href: '/admin/hsi-enrollments',
-        description: 'HSI partner enrollments',
-        status: 'active',
-      },
-      {
         name: 'JRI',
         href: '/admin/jri',
         description: 'JRI partner management',
