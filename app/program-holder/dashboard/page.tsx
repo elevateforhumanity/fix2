@@ -1,4 +1,7 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import ProfileImageUpload from '@/components/apprenticeship/ProfileImageUpload';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { getProgramHolderState } from '@/lib/orchestration/state-machine';
@@ -104,6 +107,13 @@ export default async function ProgramHolderDashboardOrchestrated() {
   });
 
   return (
+    <>
+      <section className="relative mb-8 min-h-[300px] overflow-hidden rounded-3xl bg-slate-950 text-white">
+        {profile.company_logo ? <img src={profile.company_logo} alt={profile.company_name || 'Program holder'} className="absolute inset-0 h-full w-full object-cover opacity-40" /> : <Image src="/images/hero/portal-hero.jpg" alt="Program holder portal" fill className="object-cover opacity-35" />}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/30" />
+        <div className="relative z-10 p-8 md:p-10"><p className="text-sm font-semibold uppercase tracking-wider text-blue-200">Program Holder Portal</p><h1 className="mt-2 text-4xl font-black">{profile.company_name || profile.company || 'Training Provider'}</h1><p className="mt-3 max-w-2xl text-slate-200">Manage learners, documentation, reporting and compliance from one operational dashboard.</p><Link href="/program-holder/training" className="mt-5 inline-flex rounded-lg bg-white px-5 py-3 font-semibold text-slate-950">Portal Orientation & Training</Link></div>
+      </section>
+      {!profile.company_logo && <section className="mb-8 rounded-xl border-2 border-orange-300 bg-orange-50 p-5"><h2 className="font-bold text-orange-950">To-do: upload your organization logo</h2><p className="mt-1 text-sm text-orange-900">Add your school, training-provider, or organization logo so your portal is clearly branded and identifiable.</p><div className="mt-4"><ProfileImageUpload kind="program-holder" currentUrl={profile.company_logo} /></div></section>}
     <StateAwareDashboard
       dominantAction={stateData.dominantAction}
       availableSections={stateData.availableSections}
@@ -473,5 +483,6 @@ export default async function ProgramHolderDashboardOrchestrated() {
         </div>
       </div>
     </StateAwareDashboard>
+    </>
   );
 }

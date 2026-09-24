@@ -23,6 +23,7 @@ import {
 import { PointsDisplay } from '@/components/gamification/PointsDisplay';
 import { BadgeShowcase } from '@/components/gamification/BadgeShowcase';
 import { StreakTracker } from '@/components/gamification/StreakTracker';
+import ProfileImageUpload from '@/components/apprenticeship/ProfileImageUpload';
 
 /**
  * STUDENT PORTAL - ORCHESTRATED
@@ -198,6 +199,14 @@ export default async function StudentDashboardOrchestrated() {
           )}
         </div>
       </div>
+
+      {!profile.avatar_url && (
+        <div className="mb-8 rounded-xl border-2 border-orange-300 bg-orange-50 p-5">
+          <h2 className="font-bold text-orange-950">To-do: upload your profile photo</h2>
+          <p className="mt-1 text-sm text-orange-900">Your apprenticeship profile needs a clear photo of you so your host shop and program team can identify the correct learner record.</p>
+          <div className="mt-4"><ProfileImageUpload kind="student" currentUrl={profile.avatar_url} /></div>
+        </div>
+      )}
 
       <StateAwareDashboard
         dominantAction={stateData.dominantAction}
