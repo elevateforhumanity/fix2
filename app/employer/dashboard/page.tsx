@@ -358,6 +358,15 @@ export default async function EmployerDashboardOrchestrated() {
             </a>
           </div>
 
+          {/* Host Shop Apprenticeship */}
+          <div className="bg-green-50 rounded-lg border-2 border-green-700 p-6">
+            <h3 className="text-lg font-bold text-green-950 mb-2">Host Shop Apprenticeship</h3>
+            <p className="text-sm text-green-900 mb-4">Open apprentice progress, the registered training syllabus, service records, and supervisor competency sign-offs.</p>
+            <Link href="/shop/dashboard" className="block w-full text-center px-4 py-3 bg-green-700 text-white rounded-lg font-semibold hover:bg-green-800 transition">
+              Open Host Shop Dashboard
+            </Link>
+          </div>
+
           {/* Employer Tools */}
           <div className="mt-8">
             <h3 className="text-lg font-semibold text-slate-900 mb-4">
