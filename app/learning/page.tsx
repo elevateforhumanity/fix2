@@ -10,7 +10,7 @@ export default function LearningHubPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-20">
+      <section className="bg-slate-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <GraduationCap className="w-20 h-20 mx-auto mb-6" />
           <h1 className="text-5xl font-bold mb-6">Learning Hub</h1>
