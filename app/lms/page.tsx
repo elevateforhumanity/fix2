@@ -126,7 +126,7 @@ export default async function LMSLandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Course Teaser Style */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-teal-600 to-teal-800 text-white overflow-hidden">
+      <section className="relative py-20 px-4 bg-slate-900 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
