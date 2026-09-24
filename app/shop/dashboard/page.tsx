@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import HostShopDashboardTour from './host-shop-tour';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,20 +31,22 @@ export default async function HostShopDashboard() {
   const names = new Map((profiles ?? []).map((p) => [p.id, p]));
 
   return (
-    <main className="mx-auto max-w-7xl space-y-8 p-6">
+    <main className="mx-auto max-w-7xl space-y-8 p-6" data-tour="overview">
+      <HostShopDashboardTour />
       <header className="rounded-2xl bg-slate-950 p-8 text-white">
         <p className="text-sm font-semibold uppercase tracking-wider text-blue-200">Registered Apprenticeship</p>
         <h1 className="mt-2 text-3xl font-bold">Host Shop Dashboard</h1>
         <p className="mt-2 max-w-3xl text-slate-200">Review the same training standards your apprentices see, document services and hours, and sign off only on work you directly observed.</p>
       </header>
 
-      <section className="grid gap-4 md:grid-cols-3">
+      <section className="grid gap-4 md:grid-cols-4">
         <div className="rounded-xl border bg-white p-5"><div className="text-sm text-slate-500">Host shops</div><div className="text-3xl font-bold">{shops?.length ?? 0}</div></div>
         <div className="rounded-xl border bg-white p-5"><div className="text-sm text-slate-500">Assigned apprentices</div><div className="text-3xl font-bold">{assigned?.length ?? 0}</div></div>
-        <Link href="/shop/syllabus" className="rounded-xl border bg-white p-5 hover:border-blue-500"><div className="font-semibold">Program syllabus</div><div className="mt-1 text-sm text-slate-600">Appendix A competencies, RTI and practical requirements</div></Link>
+        <Link href="/shop/orientation" data-tour="orientation" className="rounded-xl border-2 border-blue-600 bg-blue-50 p-5 hover:bg-blue-100"><div className="font-semibold text-blue-950">Required orientation</div><div className="mt-1 text-sm text-blue-900">Step-by-step guide to running the apprenticeship, documentation, supervision and weekly expectations.</div></Link>
+        <Link href="/shop/syllabus" data-tour="syllabus" className="rounded-xl border bg-white p-5 hover:border-blue-500"><div className="font-semibold">Program syllabus</div><div className="mt-1 text-sm text-slate-600">Appendix A competencies, RTI and practical requirements</div></Link>
       </section>
 
-      <section className="rounded-xl border bg-white">
+      <section className="rounded-xl border bg-white" data-tour="apprentices">
         <div className="border-b p-5"><h2 className="text-xl font-bold">Apprentices</h2><p className="text-sm text-slate-600">Live assignments from Supabase. No demo records.</p></div>
         <div className="divide-y">
           {(assigned ?? []).map((a) => {
