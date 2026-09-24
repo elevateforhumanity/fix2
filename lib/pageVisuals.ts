@@ -58,7 +58,7 @@ export const homepageVisuals: PageVisualConfig = {
       title: "Programs Built Around Real Careers",
       bullets: [
         "CNA, Barber Apprenticeship, CDL, HVAC/Building Tech, Customer Service, IT Support, Entrepreneurship, and more.",
-        "Every pathway is tied to credential partners like Milady, HSI, CareerSafe, Certiport, Rise, National Drug, and JRI.",
+        "Every pathway is tied to credential partners like Milady, CareerSafe, Certiport, Rise, National Drug, and JRI.",
         "Short, focused training that leads into employer connections, WEX, and OJT opportunities."
       ],
       imageSrc: "/images/artlist/hero-training-3.jpg",
@@ -123,7 +123,7 @@ export const cnaVisuals: PageVisualConfig = {
       id: "cna-training-overview",
       title: "What Your CNA Pathway Includes",
       bullets: [
-        "Core CNA training delivered through HSI / Choice Medical Institute.",
+        "Core CNA training aligned to the current healthcare curriculum.",
         "Healthcare safety and drug-free workplace modules to meet employer expectations.",
         "Soft skills, professionalism, and job readiness through Job Ready Indy and EFH modules."
       ],
