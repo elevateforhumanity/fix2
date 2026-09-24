@@ -92,7 +92,7 @@ export default function WorkforceBoardPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-indigo-900 text-white py-20 overflow-hidden">
+      <section className="relative bg-slate-900 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -451,7 +451,7 @@ export default function WorkforceBoardPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-indigo-900 text-white">
+      <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
             Ready for Better Oversight?
