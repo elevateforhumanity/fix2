@@ -80,7 +80,7 @@ export default function PartnerDocumentsPage() {
   }
 
   return (
-    <div className="rounded-2xl border p-5 space-y-4">
+    <div className="rounded-2xl border p-4 sm:p-5 space-y-4 min-w-0">
       <div>
         <div className="font-semibold">Documents</div>
         <div className="text-sm text-gray-600">
@@ -92,7 +92,7 @@ export default function PartnerDocumentsPage() {
         <div>
           <div className="text-xs text-gray-500 mb-1">Shop ID</div>
           <input
-            className="border rounded-xl p-2 w-[360px]"
+            className="border rounded-xl p-2 w-full sm:w-[360px] max-w-full"
             value={shopId}
             onChange={(e) => setShopId(e.target.value)}
           />
@@ -117,6 +117,7 @@ export default function PartnerDocumentsPage() {
           <div className="text-xs text-gray-500 mb-1">File</div>
           <input
             type="file"
+            className="max-w-full text-sm"
             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
           />
         </div>
