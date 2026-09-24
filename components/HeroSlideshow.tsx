@@ -134,7 +134,7 @@ export default function HeroSlideshow() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
   return (
-    <section className="relative h-[700px] overflow-hidden">
+    <section className="relative min-h-[480px] sm:min-h-[560px] lg:min-h-[700px] overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -157,10 +157,10 @@ export default function HeroSlideshow() {
           <div className="relative h-full flex items-center">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
               <div className="max-w-3xl">
-                <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-light text-white mb-6 leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
                   {slide.text}
                 </p>
                 {slide.cta && (

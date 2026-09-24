@@ -78,7 +78,7 @@ export default async function AdminInboxPage() {
       <p className="mt-2 text-zinc-700">One place to review everything.</p>
 
       <section className="mt-10">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-xl font-bold text-zinc-900">Partner Inquiries</h2>
           <a
             className="text-sm font-semibold text-zinc-700 underline"
@@ -119,7 +119,7 @@ export default async function AdminInboxPage() {
 
                 <form
                   action={updatePartner}
-                  className="mt-4 md:mt-0 md:w-[360px] space-y-2"
+                  className="mt-4 w-full md:mt-0 md:w-[360px] md:max-w-[42%] space-y-2"
                 >
                   <input type="hidden" name="id" value={r.id} />
                   <label className="block text-sm font-semibold text-zinc-800">
@@ -208,7 +208,7 @@ export default async function AdminInboxPage() {
 
                 <form
                   action={updateLicense}
-                  className="mt-4 md:mt-0 md:w-[360px] space-y-2"
+                  className="mt-4 w-full md:mt-0 md:w-[360px] md:max-w-[42%] space-y-2"
                 >
                   <input type="hidden" name="id" value={r.id} />
                   <label className="block text-sm font-semibold text-zinc-800">

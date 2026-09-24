@@ -18,14 +18,14 @@ export default async function PartnerStudentsPage() {
     .order('created_at', { ascending: false });
 
   return (
-    <div className="rounded-2xl border p-5">
+    <div className="rounded-2xl border p-4 sm:p-5 min-w-0">
       <div className="font-semibold">Students</div>
       <div className="text-sm text-gray-600 mt-1">
         Placements tied to your location(s).
       </div>
 
       <div className="mt-4 overflow-auto">
-        <table className="min-w-[900px] w-full text-sm">
+        <table className="min-w-[720px] lg:min-w-[900px] w-full text-sm">
           <thead>
             <tr className="text-left border-b">
               <th className="py-2">Program</th>

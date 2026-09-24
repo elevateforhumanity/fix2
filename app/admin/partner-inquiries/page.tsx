@@ -100,7 +100,7 @@ export default async function PartnerInquiriesAdminPage() {
 
               <form
                 action={updateStatus}
-                className="mt-4 md:mt-0 md:w-[360px] space-y-2"
+                className="mt-4 w-full md:mt-0 md:w-[360px] md:max-w-[42%] space-y-2"
               >
                 <input type="hidden" name="id" value={r.id} />
                 <label className="block text-sm font-semibold text-zinc-800">
