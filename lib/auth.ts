@@ -158,7 +158,7 @@ export async function requireStudent() {
 }
 
 export async function requireAdmin() {
-  return requireRole('admin');
+  return requireRole(['admin', 'super_admin', 'org_admin', 'platform_operator'] as UserRole[]);
 }
 
 export async function requireProgramHolder() {
@@ -191,28 +191,28 @@ export async function canAccessStudent(studentId: string): Promise<boolean> {
     return user.id === studentId;
   }
 
-  // Delegates can access their assigned students
+  // Delegates are assigned through the canonical program_enrollments relation.
   if (role === 'delegate') {
     const supabase = await createServerSupabaseClient();
     const { data }: any = await supabase
-      .from('enrollments')
+      .from('program_enrollments')
       .select('id')
       .eq('student_id', studentId)
       .eq('delegate_id', user.id)
-      .single();
+      .maybeSingle();
 
     return !!data;
   }
 
-  // Program holders can access their enrolled students
+  // Program holders are linked through the canonical program_enrollments relation.
   if (role === 'program_holder') {
     const supabase = await createServerSupabaseClient();
     const { data }: any = await supabase
-      .from('enrollments')
+      .from('program_enrollments')
       .select('id')
       .eq('student_id', studentId)
       .eq('program_holder_id', user.profile.id)
-      .single();
+      .maybeSingle();
 
     return !!data;
   }
@@ -228,7 +228,7 @@ export async function canAccessEnrollment(
 
   const supabase = await createServerSupabaseClient();
   const { data: enrollment } = await supabase
-    .from('enrollments')
+    .from('program_enrollments')
     .select('student_id, delegate_id, program_holder_id')
     .eq('id', enrollmentId)
     .single();
