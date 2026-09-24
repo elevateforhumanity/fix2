@@ -937,7 +937,7 @@ export const programs: Program[] = [
     shortDescription:
       'Comprehensive phlebotomy training with hands-on clinical experience, national certification, and job placement assistance',
     longDescription:
-      "The Phlebotomy Technician Certification program prepares you for a rewarding career in healthcare by teaching you the essential skills of blood collection and specimen processing. In just 6 weeks, you'll master venipuncture techniques, capillary puncture, specimen handling, and patient care. This program includes classroom instruction, hands-on lab practice, and a clinical externship at a real healthcare facility.\n\nYou'll earn your Certified Phlebotomy Technician (CPT) credential, CPR certification, and complete OSHA-compliant safety training through our HSI partnership, including bloodborne pathogens and infection control. Our program meets all requirements for national certification and prepares you for immediate employment in hospitals, clinics, laboratories, and blood donation centers.\n\nWith high demand for phlebotomists nationwide and excellent job growth projections, this is your opportunity to enter the healthcare field quickly with a valuable, portable credential. Our graduates work in diverse settings including hospitals, diagnostic laboratories, physician offices, blood banks, and mobile phlebotomy services.\n\nPartner Integration:\n• HSI (Health & Safety Institute) - Bloodborne Pathogens, Infection Control, CPR/AED\n• National Healthcareer Association (NHA) - CPT Certification Exam\n• Clinical externship sites - Local hospitals and laboratories\n\nCIP Code: 51.1009 - Phlebotomy Technician/Phlebotomist",
+      "The Phlebotomy Technician Certification program prepares you for a rewarding career in healthcare by teaching you the essential skills of blood collection and specimen processing. In just 6 weeks, you'll master venipuncture techniques, capillary puncture, specimen handling, and patient care. This program includes classroom instruction, hands-on lab practice, and a clinical externship at a real healthcare facility.\n\nYou'll earn your Certified Phlebotomy Technician (CPT) credential, CPR certification, and complete OSHA-compliant safety training, including bloodborne pathogens and infection control. Our program meets all requirements for national certification and prepares you for immediate employment in hospitals, clinics, laboratories, and blood donation centers.\n\nWith high demand for phlebotomists nationwide and excellent job growth projections, this is your opportunity to enter the healthcare field quickly with a valuable, portable credential. Our graduates work in diverse settings including hospitals, diagnostic laboratories, physician offices, blood banks, and mobile phlebotomy services.\n\nPartner Integration:\n• National Healthcareer Association (NHA) - CPT Certification Exam\n• Clinical externship sites - Local hospitals and laboratories\n\nCIP Code: 51.1009 - Phlebotomy Technician/Phlebotomist",
     heroImage: '/images/programs/phlebotomy.jpg',
     heroImageAlt: 'Phlebotomy technician drawing blood from patient',
     duration: '6 weeks (120 hours)',
@@ -1008,11 +1008,11 @@ export const programs: Program[] = [
     price: 2800,
   },
   {
-    slug: 'cpr-first-aid-hsi',
+    slug: 'cpr-first-aid',
     name: 'CPR, AED & First Aid Certification',
     heroTitle: 'CPR, AED & First Aid Certification',
     heroSubtitle:
-      'Get certified in life-saving skills in just one day. Learn CPR, AED operation, and first aid through hands-on training with HSI-certified instructors.',
+      'Get certified in life-saving skills in just one day. Learn CPR, AED operation, and first aid through hands-on training with qualified instructors.',
     shortDescription:
       'One-day certification course in CPR, AED, and first aid. Required for healthcare, childcare, fitness, and many other careers.',
     longDescription:
@@ -1023,13 +1023,13 @@ export const programs: Program[] = [
     duration: '1 day',
     schedule: 'Multiple dates available',
     delivery: 'In-person hands-on training',
-    credential: 'CPR/AED/First Aid Certification (HSI)',
+    credential: 'CPR/AED/First Aid Certification',
     approvals: ['ETPL Program ID: #10004674', 'WIOA Eligible', 'WRG Eligible'],
     fundingOptions: ['WIOA', 'Workforce Ready Grant', 'Self-Pay: $575'],
     highlights: [
       'One-day certification',
       'Hands-on training with equipment',
-      'HSI-certified instructors',
+      'qualified instructors',
       'Required for many careers',
       'Valid for 2 years',
       'Immediate certification',
