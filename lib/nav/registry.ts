@@ -28,7 +28,6 @@ export const NAV: NavItem[] = [
   { group: 'Programs', label: 'WIOA Programs', href: '/programs/wioa', showInHeader: false },
   { group: 'Programs', label: 'WRG Programs', href: '/programs/wrg', showInHeader: false },
   { group: 'Programs', label: 'JRI Programs', href: '/programs/jri', showInHeader: true },
-  { group: 'Programs', label: 'HSI Programs', href: '/programs/hsi', showInHeader: false },
   { group: 'Programs', label: 'NRF Programs', href: '/programs/nrf', showInHeader: false },
   { group: 'Programs', label: 'CareerSafe', href: '/programs/careersafe', showInHeader: false },
 
