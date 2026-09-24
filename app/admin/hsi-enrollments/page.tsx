@@ -27,30 +27,44 @@ export default async function HSIEnrollmentsPage() {
     redirect('/unauthorized');
   }
 
-  // Get HSI enrollments from partner courses
-  const { data: hsiEnrollments, count } = await supabase
-    .from('partner_course_enrollments')
-    .select(
-      `
-      *,
-      student:profiles!partner_course_enrollments_user_id_fkey!partner_course_enrollments_student_id_fkey(
-        id,
-        full_name,
-        email
-      ),
-      course:partner_lms_courses(
-        id,
-        course_name,
-        provider:partner_lms_providers(
-          provider_name,
-          provider_type
-        )
-      )
-    `,
-      { count: 'exact' }
-    )
-    .eq('course.provider.provider_type', 'HSI')
-    .order('created_at', { ascending: false });
+  // Resolve partner enrollment relationships explicitly. The production table
+  // does not declare foreign keys, so PostgREST relationship embedding is invalid.
+  const { data: providers, error: providersError } = await supabase
+    .from('partner_lms_providers')
+    .select('id, provider_name, provider_type')
+    .eq('provider_type', 'HSI');
+
+  if (providersError) throw providersError;
+
+  const providerIds = (providers ?? []).map((row: any) => row.id);
+  const { data: courses, error: coursesError } = providerIds.length
+    ? await supabase.from('partner_lms_courses').select('id, course_name, provider_id').in('provider_id', providerIds)
+    : { data: [], error: null };
+
+  if (coursesError) throw coursesError;
+
+  const courseIds = (courses ?? []).map((row: any) => row.id);
+  const { data: enrollmentRows, error: enrollmentError } = courseIds.length
+    ? await supabase.from('partner_course_enrollments').select('*').in('partner_course_id', courseIds).order('created_at', { ascending: false })
+    : { data: [], error: null };
+
+  if (enrollmentError) throw enrollmentError;
+
+  const userIds = [...new Set((enrollmentRows ?? []).map((row: any) => row.user_id).filter(Boolean))];
+  const { data: students, error: studentsError } = userIds.length
+    ? await supabase.from('profiles').select('id, full_name, email').in('id', userIds)
+    : { data: [], error: null };
+
+  if (studentsError) throw studentsError;
+
+  const studentsById = new Map((students ?? []).map((row: any) => [row.id, row]));
+  const coursesById = new Map((courses ?? []).map((row: any) => [row.id, row]));
+  const hsiEnrollments = (enrollmentRows ?? []).map((row: any) => ({
+    ...row,
+    student: studentsById.get(row.user_id),
+    course: coursesById.get(row.partner_course_id),
+  }));
+  const count = hsiEnrollments.length;
 
   return (
     <div className="min-h-screen bg-gray-50">
