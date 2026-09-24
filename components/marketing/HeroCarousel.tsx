@@ -40,7 +40,7 @@ const slides: Slide[] = [
     title: "From incarceration to income.",
     highlight: "Coaching + apprenticeships + employers.",
     body: "Barber, trades, and other pathways built specifically with re-entry in mind — structure, accountability, and real earning potential.",
-    image: "/images/programs/program-placeholder.jpg",
+    image: "/images/artlist/hero-training-2.jpg",
     primaryCtaLabel: "Explore re-entry pathways",
     primaryCtaHref: "/reentry",
     secondaryCtaLabel: "Watch 2-minute story",
@@ -81,7 +81,7 @@ export function HeroCarousel() {
     setIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-slate-950 text-white">
       <div className="pointer-events-none absolute inset-0    " />
       <div className="relative mx-auto flex min-h-[72vh] max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
         {/* LEFT: text / CTAs with animation */}
