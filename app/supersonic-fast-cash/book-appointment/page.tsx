@@ -13,11 +13,6 @@ import {
   Phone,
   Video,
 } from 'lucide-react';
-import { loadStripe } from '@stripe/stripe-js';
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ''
-);
 
 export default function BookAppointment() {
   const [step, setStep] = useState(1);
@@ -151,12 +146,9 @@ export default function BookAppointment() {
         }),
       });
 
-      const { sessionId } = await response.json();
-      const stripe = await stripePromise;
-
-      if (stripe) {
-        await stripe.redirectToCheckout({ sessionId });
-      }
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Booking failed');
+      window.location.href = data.url || '/supersonic-fast-cash?booked=1';
     } catch (error: unknown) {
       logger.error('Booking error:', error);
       alert('Booking failed. Please call 317-314-3757 for assistance.');
