@@ -18,7 +18,7 @@ export async function POST(request:NextRequest){
   const {data:invoice,error}=await s.from('billing_invoices').insert({
     provider:'quickbooks',idempotency_key:key,customer_email:email,total_cents:cents,currency:'USD',status:'open',
     collection_provider:'paypal',provider_payment_status:'pending',
-    provider_payload:{source:'commerce',name,slug,paymentType,quickbooks_sync_status:'pending'},
+    provider_payload:{source:'commerce',name,slug,paymentType,quickbooks_sync_status:'pending',quickbooks_customer_email:email},
     fulfillment_type:b.fulfillmentType||'purchase',
     fulfillment_payload:{user_id:user?.id||null,program_id:b.programId||null,product_id:b.productId||null,course_id:b.courseId||null}
   }).select('id').single();
