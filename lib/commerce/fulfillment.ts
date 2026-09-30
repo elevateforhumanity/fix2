@@ -1,7 +1,7 @@
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function fulfillCommerceInvoice(invoiceId:string) {
-  const s=await createClient();
+  const s=createAdminClient();
   const {data:i}=await s.from('billing_invoices').select('*').eq('id',invoiceId).single();
   if(!i) throw new Error('Invoice not found');
   const p=i.fulfillment_payload||{};
