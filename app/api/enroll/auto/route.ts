@@ -3,7 +3,6 @@ export const maxDuration = 60;
 
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import { stripe } from '@/lib/stripe/client';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -18,13 +17,6 @@ interface AutoEnrollRequest {
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.STRIPE_SECRET_KEY) {
-      return NextResponse.json(
-        { error: 'Payment system not configured' },
-        { status: 503 }
-      );
-    }
-
     const body: AutoEnrollRequest = await req.json();
     const { firstName, lastName, email, phone, programSlug, notes } = body;
 
@@ -198,69 +190,22 @@ export async function POST(req: Request) {
       }
     }
 
-    // STEP 8: For barber program, create Stripe checkout for Elevate to pay $295
-    // Note: Student doesn't pay - this is for Elevate's internal payment tracking
+    // STEP 8: Barber program internal fee now uses the commerce/accounting workflow.
     if (programSlug === 'barber-apprenticeship') {
-      const siteUrl =
-        process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
-      const session = await stripe.checkout.sessions.create({
-        mode: 'payment',
-        customer_email: 'accounting@elevateforhumanity.org', // Elevate pays, not student
-        line_items: [
-          {
-            price_data: {
-              currency: 'usd',
-              product_data: {
-                name: `Milady RISE Fee - ${firstName} ${lastName}`,
-                description: `Student: ${emailLower} | Program: Barber Apprenticeship`,
-              },
-              unit_amount: 29500, // $295.00
-            },
-            quantity: 1,
-          },
-        ],
-        success_url: `${siteUrl}/enroll/success?session_id={CHECKOUT_SESSION_ID}&student=${userId}`,
-        cancel_url: `${siteUrl}/enroll/success?enrolled=true&student=${userId}`,
-        metadata: {
-          userId,
-          enrollmentId,
-          applicationId: application?.id || '',
-          programId: program.id,
-          programSlug: program.slug,
-          studentFirstName: firstName,
-          studentLastName: lastName,
-          studentEmail: emailLower,
-          paymentType: 'milady_rise_elevate_pays',
-          paidBy: 'elevate',
-        },
-        payment_method_types: ['card'],
-        automatic_tax: { enabled: true },
+      await supabase.from('payment_records').insert({
+        user_id: userId,
+        amount: 295,
+        currency: 'usd',
+        status: 'pending',
+        description: 'Milady RISE Fee - Elevate internal payment',
+        metadata: { enrollment_id: enrollmentId, application_id: application?.id || '', provider: 'quickbooks_paypal', paid_by: 'elevate' },
       });
-
-      if (!session.url) {
-        return NextResponse.json(
-          { error: 'Failed to create checkout session' },
-          { status: 500 }
-        );
-      }
-
-      logger.info(
-        'Enrollment complete, Stripe checkout created for Elevate payment',
-        {
-          userId,
-          enrollmentId,
-          sessionId: session.id,
-        }
-      );
-
       return NextResponse.json({
         ok: true,
         userId,
         enrollmentId,
-        checkoutUrl: session.url,
-        sessionId: session.id,
-        message: 'Enrollment successful! Processing Milady RISE payment...',
+        checkoutUrl: '/checkout/payment?name=Milady+RISE+Fee&program=barber-apprenticeship&amount=295',
+        message: 'Enrollment successful. Internal program fee queued in commerce.',
       });
     }
 
