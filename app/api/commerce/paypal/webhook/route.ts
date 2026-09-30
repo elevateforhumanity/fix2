@@ -1,5 +1,5 @@
 import { NextRequest,NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { verifyPayPalWebhook } from '@/lib/commerce/paypal';
 import { fulfillCommerceInvoice } from '@/lib/commerce/fulfillment';
 
@@ -10,7 +10,7 @@ export async function POST(req:NextRequest){
   const valid=await verifyPayPalWebhook(req.headers,event);
   if(!valid) return NextResponse.json({error:'Invalid signature'},{status:400});
 
-  const s=await createClient();
+  const s=createAdminClient();
   const type=event.event_type;
   const resource=event.resource||{};
   const invoiceId=resource?.custom_id||resource?.supplementary_data?.related_ids?.order_id||resource?.purchase_units?.[0]?.custom_id||null;
