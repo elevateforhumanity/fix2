@@ -75,3 +75,12 @@ export function verifyQuickBooksWebhook(rawBody:string,signature:string|null) {
   const b=Buffer.from(signature);
   return a.length===b.length&&crypto.timingSafeEqual(a,b);
 }
+
+export async function createQuickBooksPayment(input:{invoiceId:string,customerId:string,amount:number}) {
+  const created=await qbo('/payment',{method:'POST',body:JSON.stringify({
+    CustomerRef:{value:input.customerId},
+    TotalAmt:input.amount,
+    Line:[{Amount:input.amount,LinkedTxn:[{TxnId:input.invoiceId,TxnType:'Invoice'}]}]
+  })});
+  return created.Payment;
+}
