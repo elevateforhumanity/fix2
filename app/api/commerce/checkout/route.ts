@@ -38,7 +38,7 @@ export async function POST(request:NextRequest){
       provider_payment_status:'pending',
       provider_payload:{source:'commerce',name,slug,paymentType,quickbooks_sync_status:'pending'},
       fulfillment_type:b.fulfillmentType||'purchase',
-      fulfillment_payload:{user_id:user?.id||null,program_id:b.programId||null,product_id:b.productId||null,course_id:b.courseId||null,license_id:b.licenseId||null,enrollment_id:b.enrollmentId||null}
+      fulfillment_payload:{user_id:user?.id||null,program_id:b.programId||null,product_id:b.productId||null,course_id:b.courseId||null,license_id:b.licenseId||null,enrollment_id:b.enrollmentId||null,creator_id:b.creatorId||null,organization_name:b.organizationName||null,license_type:b.licenseType||null,contact_name:b.customerName||null}
     }).select('id').single();
     if(error) throw error;
 
