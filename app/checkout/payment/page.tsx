@@ -13,6 +13,7 @@ export default function PaymentPage(){
   const fulfillmentType=q.get('fulfillmentType')||'purchase';
   const organizationName=q.get('organizationName');
   const licenseType=q.get('licenseType');
+  const email=q.get('email');
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState('');
 
@@ -25,7 +26,7 @@ export default function PaymentPage(){
         window.location.href=d.url; return;
       }
       const r=await fetch('/api/commerce/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-        amount,programName:name,programSlug:program,productId,creatorId,fulfillmentType,organizationName,licenseType
+        amount,programName:name,programSlug:program,productId,creatorId,fulfillmentType,organizationName,licenseType,email
       })});
       const d=await r.json(); if(!r.ok||!d.url) throw new Error(d.error||'Unable to start payment');
       window.location.href=d.url;
