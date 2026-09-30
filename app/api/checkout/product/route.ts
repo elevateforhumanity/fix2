@@ -1,47 +1,14 @@
-import { logger } from '@/lib/logger';
 import { NextResponse } from 'next/server';
-
 export const runtime = 'nodejs';
-export const maxDuration = 60;
-import { stripe } from '@/lib/stripe/client';
-import { toError, toErrorMessage } from '@/lib/safe';
-
-
 export async function POST(req: Request) {
-  if (!process.env.STRIPE_SECRET_KEY) {
-    return NextResponse.json(
-      { error: 'Stripe not configured' },
-      { status: 503 }
-    );
-  }
-
   try {
-    const { priceId, productName } = await req.json();
-
-    if (!priceId) {
-      return NextResponse.json(
-        { error: 'Price ID is required' },
-        { status: 400 }
-      );
-    }
-
-    const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/store`,
-      metadata: {
-        product_name: productName || 'Digital Product',
-      },
-    });
-
-    return NextResponse.json({ sessionId: session.id });
-  } catch (err: unknown) {
-    const error = toError(err);
-    logger.error('Product checkout error:', error);
-    return NextResponse.json(
-      { error: toErrorMessage(err) },
-      { status: 500 }
-    );
+    const body = await req.json();
+    const amount = Number(body.amount || body.total || body.price || (body.priceCents ? body.priceCents / 100 : 0));
+    const name = String(body.programName || body.productName || body.productTitle || body.description || 'Elevate purchase');
+    const slug = String(body.programSlug || body.productId || body.programId || 'purchase');
+    const params = new URLSearchParams({ name, program: slug, amount: String(amount || 0) });
+    return NextResponse.json({ provider: 'quickbooks_paypal', url: '/checkout/payment?' + params.toString(), migrated: true });
+  } catch {
+    return NextResponse.json({ error: 'Unable to start payment' }, { status: 400 });
   }
 }
