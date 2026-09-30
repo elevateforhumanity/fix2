@@ -1,59 +1,10 @@
-export const runtime = 'nodejs';
-export const maxDuration = 60;
-
-import { logger } from '@/lib/logger';
-import { NextRequest, NextResponse } from 'next/server';
-import { parseBody, getErrorMessage } from '@/lib/api-helpers';
-import { stripe } from '@/lib/stripe/client';
-
-
-export async function POST(request: NextRequest) {
-  try {
-    if (!stripe) {
-      return NextResponse.json(
-        { error: 'Payment system not configured' },
-        { status: 503 }
-      );
-    }
-
-    const { studentInfo, examDate, examTime } = await request.json();
-
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items: [
-        {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: 'IPLA Apprenticeship Exam',
-              description: `Exam scheduled for ${new Date(examDate).toLocaleDateString()} at ${examTime}`,
-              images: ['https://elevateforhumanity.org/images/logo.png'],
-            },
-            unit_amount: 15000, // $150.00
-          },
-          quantity: 1,
-        },
-      ],
-      mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/apprenticeships/ipla-exam/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/apprenticeships/ipla-exam`,
-      customer_email: studentInfo.email,
-      metadata: {
-        studentName: studentInfo.name,
-        studentEmail: studentInfo.email,
-        studentPhone: studentInfo.phone,
-        apprenticeshipProgram: studentInfo.apprenticeshipProgram,
-        examDate: examDate,
-        examTime: examTime,
-      },
-    });
-
-    return NextResponse.json({ sessionId: session.id, url: session.url });
-  } catch (error: unknown) {
-    logger.error('IPLA exam checkout error:', error);
-    return NextResponse.json(
-      { error: 'Failed to create checkout session' },
-      { status: 500 }
-    );
-  }
+import { NextResponse } from 'next/server';
+export async function POST(req: Request) {
+  let body: any = {};
+  try { body = await req.json(); } catch {}
+  const amount = Number(body.amount || body.total || body.price || (body.priceCents ? body.priceCents / 100 : 0));
+  const name = String(body.programName || body.productName || body.productTitle || body.description || 'Elevate purchase');
+  const program = String(body.programSlug || body.productId || body.programId || body.courseId || 'purchase');
+  const params = new URLSearchParams({ name, program, amount: String(amount || 0) });
+  return NextResponse.json({ provider: 'commerce', url: '/checkout/payment?' + params.toString(), migrated: true });
 }
