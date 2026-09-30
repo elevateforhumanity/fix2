@@ -5,11 +5,6 @@ import React from 'react';
 
 import { useState } from 'react';
 import { Calendar, CreditCard, CheckCircle, Award } from 'lucide-react';
-import { loadStripe } from '@stripe/stripe-js';
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ''
-);
 
 export default function IPLAExamSignup() {
   const [selectedDate, setSelectedDate] = useState('');
@@ -54,12 +49,9 @@ export default function IPLAExamSignup() {
         }),
       });
 
-      const { sessionId } = await response.json();
-      const stripe = await stripePromise;
-
-      if (stripe) {
-        await stripe.redirectToCheckout({ sessionId });
-      }
+      const data = await response.json();
+      if (!response.ok || !data.url) throw new Error(data.error || 'Unable to start payment');
+      window.location.href = data.url;
     } catch (error: unknown) {
       logger.error('Payment error:', error);
       alert('Payment failed. Please try again.');
