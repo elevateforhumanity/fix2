@@ -1,5 +1,6 @@
 import { createAdminClient } from '@/lib/supabase/admin';
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
+import { randomBytes } from 'node:crypto';
 
 export async function fulfillCommerceInvoice(invoiceId:string) {
   const s=createAdminClient();
@@ -31,6 +32,25 @@ export async function fulfillCommerceInvoice(invoiceId:string) {
           })
         });
       }catch{}
+    }
+  }
+  if(i.fulfillment_type==='marketplace' && p.product_id && p.creator_id) {
+    const {data:creator}=await s.from('marketplace_creators').select('revenue_split').eq('id',p.creator_id).maybeSingle();
+    const split=creator?.revenue_split||0.7;
+    const total=Number(i.total_cents||0);
+    const creatorEarnings=Math.floor(total*split);
+    const platformEarnings=total-creatorEarnings;
+    const token=randomBytes(32).toString('hex');
+    const expires=new Date(); expires.setDate(expires.getDate()+30);
+    await s.from('marketplace_sales').insert({product_id:p.product_id,creator_id:p.creator_id,buyer_email:i.customer_email||'',amount_cents:total,creator_earnings_cents:creatorEarnings,platform_earnings_cents:platformEarnings,download_token:token,download_expires_at:expires.toISOString()});
+  }
+  if(i.fulfillment_type==='license' && p.organization_name) {
+    const slug=String(p.organization_name).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    const {data:tenant}=await s.from('tenants').insert({name:p.organization_name,slug,status:'active'}).select().single();
+    if(tenant){
+      const validUntil=new Date(); validUntil.setFullYear(validUntil.getFullYear()+1);
+      const tier=p.license_type==='enterprise'?'enterprise':p.license_type==='school'?'pro':'basic';
+      await s.from('licenses').insert({tenant_id:tenant.id,tier,status:'active',valid_from:now,valid_until:validUntil.toISOString()});
     }
   }
   if(i.fulfillment_type==='donation') {
