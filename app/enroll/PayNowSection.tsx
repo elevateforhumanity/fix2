@@ -79,7 +79,7 @@ export function PayNowSection() {
     setIsProcessing(true);
 
     try {
-      const response = await fetch('/api/create-checkout-session', {
+      const response = await fetch('/api/commerce/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -182,13 +182,13 @@ export function PayNowSection() {
           </div>
         </div>
 
-        {/* Stripe Payment Button */}
+        {/* QuickBooks / PayPal Payment Button */}
         <button
           onClick={handlePayNow}
           disabled={isProcessing}
           className="block w-full text-center px-6 py-4 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isProcessing ? 'Loading...' : 'Pay with Card/Klarna/Afterpay'}
+          {isProcessing ? 'Loading...' : 'Continue to Secure Payment'}
         </button>
       </div>
 
