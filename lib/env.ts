@@ -23,10 +23,15 @@ const EnvSchema = z.object({
   // Email (optional)
   RESEND_API_KEY: z.string().min(10).optional(),
 
-  // Stripe (optional)
-  STRIPE_SECRET_KEY: z.string().min(20).optional(),
-  STRIPE_WEBHOOK_SECRET: z.string().min(20).optional(),
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().min(20).optional(),
+  // Commerce providers
+  PAYPAL_CLIENT_ID: z.string().min(5).optional(),
+  PAYPAL_CLIENT_SECRET: z.string().min(5).optional(),
+  PAYPAL_WEBHOOK_ID: z.string().min(5).optional(),
+  QUICKBOOKS_REALM_ID: z.string().min(1).optional(),
+  QUICKBOOKS_REFRESH_TOKEN: z.string().min(5).optional(),
+  INTUIT_CLIENT_ID: z.string().min(5).optional(),
+  INTUIT_CLIENT_SECRET: z.string().min(5).optional(),
+  QUICKBOOKS_WEBHOOK_VERIFIER_TOKEN: z.string().min(5).optional(),
 });
 
 /**
@@ -59,9 +64,7 @@ export function hasEmailConfigured(): boolean {
   return !!env.RESEND_API_KEY;
 }
 
-/**
- * Check if Stripe is configured
- */
-export function hasStripeConfigured(): boolean {
-  return !!env.STRIPE_SECRET_KEY && !!env.STRIPE_WEBHOOK_SECRET;
+/** Check if commerce providers are configured */
+export function hasCommerceConfigured(): boolean {
+  return !!env.PAYPAL_CLIENT_ID && !!env.PAYPAL_CLIENT_SECRET && !!env.QUICKBOOKS_REALM_ID && !!env.QUICKBOOKS_REFRESH_TOKEN;
 }
