@@ -32,7 +32,7 @@ export default function IdentityVerificationFlow({
 }: IdentityVerificationFlowProps) {
   const router = useRouter();
   const [verificationMethod, setVerificationMethod] = useState<
-    'stripe' | 'manual' | null
+    'manual' | null
   >(null);
   const [uploadedDocs, setUploadedDocs] = useState<{
     id?: File;
@@ -44,32 +44,6 @@ export default function IdentityVerificationFlow({
   // Check if documents already uploaded
   const hasIdDoc = documents.some((d) => d.document_type === 'id');
   const hasSsnDoc = documents.some((d) => d.document_type === 'ssn');
-
-  const handleStripeVerification = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      // Call API to create Stripe Identity session
-      const response = await fetch('/api/program-holder/create-verification', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to create verification session');
-      }
-
-      const { url } = await response.json();
-
-      // Redirect to Stripe Identity
-      window.location.href = url;
-    } catch (err: unknown) {
-      setError((err as Error).message || 'Failed to start verification');
-      setLoading(false);
-    }
-  };
 
   const handleManualUpload = async () => {
     if (!uploadedDocs.id || !uploadedDocs.ssn) {
@@ -224,7 +198,7 @@ export default function IdentityVerificationFlow({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Stripe Identity - Instant */}
+            {/* document verification - Instant */}
             <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-blue-500">
               <div className="flex items-center gap-3 mb-4">
                 <Camera className="w-8 h-8 text-blue-600" />
@@ -256,7 +230,7 @@ export default function IdentityVerificationFlow({
                 </li>
               </ul>
               <button
-                onClick={() => setVerificationMethod('stripe')}
+                onClick={() => setVerificationMethod('manual')}
                 className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700"
               >
                 Start Instant Verification
@@ -314,7 +288,7 @@ export default function IdentityVerificationFlow({
     );
   }
 
-  // Stripe Identity Flow
+  // document verification Flow
   if (verificationMethod === 'stripe') {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
@@ -346,7 +320,7 @@ export default function IdentityVerificationFlow({
           </div>
 
           <button
-            onClick={handleStripeVerification}
+            onClick={handleManualVerification}
             disabled={loading}
             className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed mb-3"
           >
