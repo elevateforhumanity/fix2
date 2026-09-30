@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 export const maxDuration = 60;
-import { cloneRepository } from '@/lib/store/stripe-products';
+import { cloneRepository } from '@/lib/store/repository';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
