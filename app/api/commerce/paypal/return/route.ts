@@ -2,6 +2,7 @@ import { NextRequest,NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { capturePayPalOrder } from '@/lib/commerce/paypal';
 import { fulfillCommerceInvoice } from '@/lib/commerce/fulfillment';
+import { createQuickBooksPayment,getQuickBooksInvoice } from '@/lib/commerce/quickbooks';
 
 export async function GET(req:NextRequest){
   const invoiceId=req.nextUrl.searchParams.get('invoiceId');
@@ -15,6 +16,13 @@ export async function GET(req:NextRequest){
     const capture=result?.purchase_units?.[0]?.payments?.captures?.[0];
     const paid=capture?.status==='COMPLETED'||result?.status==='COMPLETED';
     if(paid){
+      try{
+        if(i.provider_invoice_id){
+          const qbo=await getQuickBooksInvoice(String(i.provider_invoice_id));
+          const customerId=qbo?.CustomerRef?.value;
+          if(customerId) await createQuickBooksPayment({invoiceId:String(i.provider_invoice_id),customerId,amount:Number(i.total_cents||0)/100});
+        }
+      }catch{}
       await s.from('billing_invoices').update({status:'paid',paid_at:new Date().toISOString(),provider_payment_status:'COMPLETED',provider_payment_id:capture?.id||token}).eq('id',invoiceId);
       await fulfillCommerceInvoice(invoiceId);
       return NextResponse.redirect(new URL('/checkout/success?invoiceId='+invoiceId,req.url));
