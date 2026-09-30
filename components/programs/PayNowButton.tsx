@@ -23,7 +23,7 @@ export function PayNowButton({ programName, programSlug, price, className, child
     setIsProcessing(true);
 
     try {
-      const response = await fetch('/api/create-checkout-session', {
+      const response = await fetch('/api/commerce/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
