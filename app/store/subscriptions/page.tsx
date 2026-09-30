@@ -22,7 +22,6 @@ interface SubscriptionPlan {
   description: string;
   features: string[];
   price_id: string;
-  stripe_price_id: string;
   interval: string;
   amount_cents: number;
   amount_dollars: number;
@@ -142,7 +141,7 @@ function SubscriptionsContent() {
         throw new Error(data.error || 'Failed to create checkout session');
       }
 
-      // Redirect to Stripe Checkout
+      // Redirect to PayPal
       if (data.url) {
         window.location.href = data.url;
       }
@@ -172,7 +171,7 @@ function SubscriptionsContent() {
         throw new Error(data.error || 'Failed to open customer portal');
       }
 
-      // Redirect to Stripe Customer Portal
+      // Redirect to PayPal Customer Portal
       if (data.url) {
         window.location.href = data.url;
       }
@@ -329,11 +328,11 @@ function SubscriptionsContent() {
                     </button>
                   ) : (
                     <button
-                      onClick={() => handleSubscribe(plan.stripe_price_id)}
-                      disabled={subscribing === plan.stripe_price_id}
+                      onClick={() => handleSubscribe(plan.paypal_price_id)}
+                      disabled={subscribing === plan.paypal_price_id}
                       className="w-full py-3 px-4 bg-brand-blue-600 text-white rounded-lg font-semibold hover:bg-brand-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                     >
-                      {subscribing === plan.stripe_price_id ? (
+                      {subscribing === plan.paypal_price_id ? (
                         <>
                           <Loader2 className="h-5 w-5 animate-spin mr-2" />
                           Processing...
@@ -378,7 +377,7 @@ function SubscriptionsContent() {
                 What payment methods do you accept?
               </h3>
               <p className="text-gray-600">
-                We accept all major credit cards through Stripe's secure payment
+                We accept all major credit cards through PayPal's secure payment
                 processing.
               </p>
             </div>
