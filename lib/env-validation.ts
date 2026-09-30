@@ -13,8 +13,10 @@ export interface EnvConfig {
 
   // Optional - Services degrade gracefully if missing
   SUPABASE_SERVICE_ROLE_KEY?: string;
-  STRIPE_SECRET_KEY?: string;
-  STRIPE_PUBLISHABLE_KEY?: string;
+  PAYPAL_CLIENT_ID?: string;
+  PAYPAL_CLIENT_SECRET?: string;
+  QUICKBOOKS_REALM_ID?: string;
+  QUICKBOOKS_REFRESH_TOKEN?: string;
   RESEND_API_KEY?: string;
   OPENAI_API_KEY?: string;
   DRAKE_API_KEY?: string;
@@ -68,7 +70,8 @@ export function getEnvOrFallback(key: string, fallback: string = ''): string {
  * Service availability checks
  */
 export const services = {
-  stripe: () => isServiceAvailable('STRIPE_SECRET_KEY'),
+  paypal: () => isServiceAvailable('PAYPAL_CLIENT_ID'),
+  quickbooks: () => isServiceAvailable('QUICKBOOKS_REALM_ID'),
   resend: () => isServiceAvailable('RESEND_API_KEY'),
   openai: () => isServiceAvailable('OPENAI_API_KEY'),
   drake: () => isServiceAvailable('DRAKE_API_KEY'),
@@ -82,7 +85,8 @@ export const services = {
  */
 export function getServiceStatus() {
   return {
-    stripe: services.stripe(),
+    paypal: services.paypal(),
+    quickbooks: services.quickbooks(),
     resend: services.resend(),
     openai: services.openai(),
     drake: services.drake(),
