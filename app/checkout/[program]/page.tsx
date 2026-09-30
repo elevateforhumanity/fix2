@@ -3,13 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { loadStripe } from '@stripe/stripe-js';
 import { Calendar, CheckCircle, CreditCard, Lightbulb } from 'lucide-react';
-
-// Initialize Stripe
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ''
-);
 
 interface ProgramPricing {
   name: string;
@@ -44,7 +38,7 @@ export default function CheckoutPage() {
   const params = useParams();
   const searchParams = useSearchParams();
   const program = params.program as string;
-  const method = searchParams.get('method') || 'stripe';
+  const method = searchParams.get('method') || 'paypal';
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -68,50 +62,14 @@ export default function CheckoutPage() {
     }
   }, [method]);
 
-  const handleStripeCheckout = async () => {
-    setLoading(true);
-    setError(null);
-
+  const handlePayPalCheckout = async () => {
+    setLoading(true); setError(null);
     try {
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          program,
-          amount: programData.price,
-          name: programData.name,
-        }),
-      });
-
-      const { sessionId, error: apiError } = await response.json();
-
-      if (apiError) {
-        setError(apiError);
-        setLoading(false);
-        return;
-      }
-
-      const stripe = await stripePromise;
-      if (!stripe) {
-        setError('Stripe failed to load');
-        setLoading(false);
-        return;
-      }
-
-      const { error: stripeError } = await stripe.redirectToCheckout({
-        sessionId,
-      });
-
-      if (stripeError) {
-        setError(stripeError.message || 'Payment failed');
-        setLoading(false);
-      }
-    } catch (err) {
-      setError('An error occurred. Please try again.');
-      setLoading(false);
-    }
+      const response = await fetch('/api/commerce/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({programName:programData.name,programSlug:program,price:programData.price,fulfillmentType:'program'})});
+      const data = await response.json();
+      if (!response.ok || !data.url) throw new Error(data.error || 'Unable to start payment');
+      window.location.href = data.url;
+    } catch (e:any) { setError(e?.message || 'Payment setup failed'); setLoading(false); }
   };
 
   const handleAffirmCheckout = () => {
@@ -173,7 +131,7 @@ export default function CheckoutPage() {
         },
       });
     } else {
-      setError('Affirm is not available. Please try Stripe instead.');
+      setError('Affirm is not available. Please try PayPal instead.');
       setLoading(false);
     }
   };
@@ -276,12 +234,12 @@ export default function CheckoutPage() {
                 </div>
               )}
 
-              {method === 'stripe' ? (
+              {method === 'paypal' ? (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <CreditCard className="w-6 h-6 text-blue-600" />
                     <h3 className="text-xl font-bold text-gray-900">
-                      Pay with Stripe
+                      Pay with PayPal
                     </h3>
                   </div>
 
@@ -307,13 +265,13 @@ export default function CheckoutPage() {
                   </div>
 
                   <button
-                    onClick={handleStripeCheckout}
+                    onClick={handlePayPalCheckout}
                     disabled={loading}
                     className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all text-lg"
                   >
                     {loading
                       ? 'Processing...'
-                      : `Pay $${programData.price.toLocaleString()} with Stripe`}
+                      : `Pay $${programData.price.toLocaleString()} with PayPal`}
                   </button>
 
                   <p className="text-center text-sm text-gray-600 mt-4">
@@ -368,10 +326,10 @@ export default function CheckoutPage() {
                   <p className="text-center text-sm text-gray-600 mt-4">
                     Or{' '}
                     <Link
-                      href={`/checkout/${program}?method=stripe`}
+                      href={`/checkout/${program}?method=paypal`}
                       className="text-blue-600 underline"
                     >
-                      pay in full with Stripe
+                      pay in full with PayPal
                     </Link>
                   </p>
                 </div>
