@@ -27,7 +27,7 @@ export function BuyNowButton({
     setLoading(true);
 
     try {
-      const response = await fetch('/api/create-checkout-session', {
+      const response = await fetch('/api/commerce/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
