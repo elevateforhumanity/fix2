@@ -4,8 +4,9 @@ import { cache } from 'react';
 export interface OrgSubscription {
   id: string;
   organization_id: string;
-  stripe_customer_id: string;
-  stripe_subscription_id: string | null;
+  provider: string | null;
+  provider_customer_id: string | null;
+  provider_subscription_id: string | null;
   plan: string;
   status: string;
   seats: number | null;
