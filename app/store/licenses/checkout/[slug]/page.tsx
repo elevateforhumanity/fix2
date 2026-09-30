@@ -10,7 +10,7 @@ export default function LicenseCheckoutPage(){
  if(!product){if(typeof window!=='undefined')router.push('/store/licenses');return null;}
  async function submit(e:React.FormEvent){e.preventDefault();setLoading(true);setError('');try{
    const r=await fetch('/api/commerce/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-     amount:Number(product.price||0)/100,productName:product.name,productId:product.id,email:info.email,customerName:info.contactName,fulfillmentType:'license'
+     amount:Number(product.price||0)/100,productName:product.name,productId:product.id,email:info.email,customerName:info.contactName,organizationName:info.organizationName,licenseType:product.licenseType||'single',fulfillmentType:'license'
    })});
    const d=await r.json();if(!r.ok||!d.url)throw new Error(d.error||'Unable to start payment');window.location.href=d.url;
  }catch(e:any){setError(e?.message||'Unable to start payment');setLoading(false);}}
