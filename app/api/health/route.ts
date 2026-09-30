@@ -72,30 +72,21 @@ export async function GET() {
     status: 'pass',
   };
 
-  // Check 4: Stripe (optional)
-  if (process.env.STRIPE_SECRET_KEY) {
-    try {
-      const response = await fetch(
-        'https://api.stripe.com/v1/customers?limit=1',
-        {
-          headers: { Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}` },
-        }
-      );
-      checks.checks.stripe = {
-        ok: response.ok,
-        status: response.ok ? 'pass' : 'warn',
-        statusCode: response.status,
-      };
-    } catch (error) {
-      checks.checks.stripe = {
-        ok: false,
-        status: 'warn',
-        error: toErrorMessage(error),
-      };
-    }
-  } else {
-    checks.checks.stripe = { skipped: true, status: 'pass' };
-  }
+  // Check 4: Commerce providers
+  checks.checks.commerce = {
+    quickbooks: !!process.env.QUICKBOOKS_REALM_ID && !!process.env.QUICKBOOKS_REFRESH_TOKEN && !!process.env.INTUIT_CLIENT_ID && !!process.env.INTUIT_CLIENT_SECRET,
+    paypal: !!process.env.PAYPAL_CLIENT_ID && !!process.env.PAYPAL_CLIENT_SECRET && !!process.env.PAYPAL_WEBHOOK_ID,
+    status:
+      process.env.QUICKBOOKS_REALM_ID &&
+      process.env.QUICKBOOKS_REFRESH_TOKEN &&
+      process.env.INTUIT_CLIENT_ID &&
+      process.env.INTUIT_CLIENT_SECRET &&
+      process.env.PAYPAL_CLIENT_ID &&
+      process.env.PAYPAL_CLIENT_SECRET &&
+      process.env.PAYPAL_WEBHOOK_ID
+        ? 'pass'
+        : 'warn',
+  };
 
   // Check 5: Resend (optional)
   if (process.env.RESEND_API_KEY) {
