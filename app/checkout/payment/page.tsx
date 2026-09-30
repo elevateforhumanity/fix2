@@ -8,6 +8,11 @@ export default function PaymentPage(){
   const program=q.get('program')||'purchase';
   const amount=Number(q.get('amount')||0);
   const invoiceId=q.get('invoiceId');
+  const productId=q.get('productId');
+  const creatorId=q.get('creatorId');
+  const fulfillmentType=q.get('fulfillmentType')||'purchase';
+  const organizationName=q.get('organizationName');
+  const licenseType=q.get('licenseType');
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState('');
 
@@ -20,7 +25,7 @@ export default function PaymentPage(){
         window.location.href=d.url; return;
       }
       const r=await fetch('/api/commerce/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-        amount,programName:name,programSlug:program,fulfillmentType:'purchase'
+        amount,programName:name,programSlug:program,productId,creatorId,fulfillmentType,organizationName,licenseType
       })});
       const d=await r.json(); if(!r.ok||!d.url) throw new Error(d.error||'Unable to start payment');
       window.location.href=d.url;
