@@ -1,5 +1,5 @@
 import { NextRequest,NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { capturePayPalOrder } from '@/lib/commerce/paypal';
 import { fulfillCommerceInvoice } from '@/lib/commerce/fulfillment';
 
@@ -7,7 +7,7 @@ export async function GET(req:NextRequest){
   const invoiceId=req.nextUrl.searchParams.get('invoiceId');
   const token=req.nextUrl.searchParams.get('token');
   if(!invoiceId||!token) return NextResponse.redirect(new URL('/checkout/payment?error=missing_reference',req.url));
-  const s=await createClient();
+  const s=createAdminClient();
   const {data:i}=await s.from('billing_invoices').select('*').eq('id',invoiceId).single();
   if(!i||i.provider_payment_id!==token) return NextResponse.redirect(new URL('/checkout/payment?error=invalid_reference',req.url));
   try{
