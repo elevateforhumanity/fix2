@@ -25,17 +25,8 @@ export async function GET() {
       );
     }
 
-    // Check Stripe configuration
-    if (!process.env.STRIPE_SECRET_KEY) {
-      return NextResponse.json(
-        {
-          ok: false,
-          service: 'marketplace',
-          error: 'Stripe not configured',
-        },
-        { status: 503 }
-      );
-    }
+    const paymentConfigured = !!process.env.PAYPAL_CLIENT_ID && !!process.env.QUICKBOOKS_REALM_ID;
+    if (!paymentConfigured) return NextResponse.json({ ok:false, service:'marketplace', error:'Commerce providers not configured' }, { status:503 });
 
     return NextResponse.json({
       ok: true,
@@ -43,7 +34,8 @@ export async function GET() {
       timestamp: new Date().toISOString(),
       checks: {
         database: 'healthy',
-        stripe: 'configured',
+        quickbooks: 'configured',
+        paypal: 'configured',
       },
     });
   } catch (err: unknown) {
