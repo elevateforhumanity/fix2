@@ -29,7 +29,7 @@ export default function PayrollSetupForm({
   const router = useRouter();
 
   const [payoutMethod, setPayoutMethod] = useState(
-    existingProfile?.payout_method || 'STRIPE'
+    existingProfile?.payout_method || 'PAYPAL'
   );
   const [rate, setRate] = useState(existingProfile?.rate || '');
   const [taxIdUploaded, setTaxIdUploaded] = useState(
@@ -233,16 +233,16 @@ export default function PayrollSetupForm({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <button
                 type="button"
-                onClick={() => setPayoutMethod('STRIPE')}
+                onClick={() => setPayoutMethod('PAYPAL')}
                 className={`flex items-start gap-4 p-4 rounded-lg border-2 transition-colors text-left ${
-                  payoutMethod === 'STRIPE'
+                  payoutMethod === 'PAYPAL'
                     ? 'border-brand-blue-600 bg-blue-50'
                     : 'border-slate-300 bg-white hover:border-slate-400'
                 }`}
               >
                 <CreditCard
                   className={`w-6 h-6 flex-shrink-0 ${
-                    payoutMethod === 'STRIPE'
+                    payoutMethod === 'PAYPAL'
                       ? 'text-brand-blue-600'
                       : 'text-slate-400'
                   }`}
@@ -250,12 +250,12 @@ export default function PayrollSetupForm({
                 <div>
                   <div
                     className={`font-semibold ${
-                      payoutMethod === 'STRIPE'
+                      payoutMethod === 'PAYPAL'
                         ? 'text-blue-900'
                         : 'text-slate-900'
                     }`}
                   >
-                    Stripe Connect
+                    PayPal Connect
                   </div>
                   <div className="text-sm text-slate-600 mt-1">
                     Fast, secure payments to your bank account or debit card
