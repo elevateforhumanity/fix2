@@ -92,6 +92,9 @@ export default function AdminNav({ userRole }: AdminNavProps) {
       icon: DollarSign,
       submenu: [
         { href: '/admin/funding', label: 'Funding' },
+        { href: '/admin/commerce', label: 'Commerce & Payments' },
+        { href: '/admin/commerce/products', label: 'Products & Cart' },
+        { href: '/admin/commerce/invoices', label: 'Invoices' },
         { href: '/admin/grants', label: 'Grants' },
         { href: '/admin/payroll', label: 'Payroll' },
         { href: '/admin/tax-filing', label: 'Tax Filing' },
