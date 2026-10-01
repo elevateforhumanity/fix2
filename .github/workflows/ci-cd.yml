@@ -87,14 +87,14 @@ jobs:
   northflank-deploy:
     runs-on: ubuntu-latest
     needs: [test-and-build]
-    if: github.event_name == 'workflow_dispatch' && startsWith(inputs.target, 'deploy-')
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && startsWith(inputs.target, 'deploy-'))
 
     steps:
       - name: Resolve Northflank target
         id: target
         shell: bash
         run: |
-          case "${{ inputs.target }}" in
+          case "${{ github.event_name == 'push' && 'deploy-public' || inputs.target }}" in
             deploy-public)
               echo "service_id=${{ secrets.NORTHFLANK_PUBLIC_SERVICE_ID }}" >> "$GITHUB_OUTPUT"
               echo "label=public" >> "$GITHUB_OUTPUT"
