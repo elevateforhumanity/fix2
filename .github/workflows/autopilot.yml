@@ -21,8 +21,12 @@ jobs:
         with:
           node-version: "20"
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
       - name: Install
-        run: npm ci || npm install
+        run: pnpm install --frozen-lockfile
 
       - name: Autopilot
         run: ./scripts/autopilot.sh
