@@ -72,11 +72,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Fix grid layouts on mobile */
+/* Mobile grid safety: only collapse actual grid containers. */
 @media (max-width: 640px) {
-  [class*="grid"] {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
+  .grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1rem;
   }
 }
 
@@ -178,9 +178,32 @@ video {
   box-sizing: border-box;
 }
 
-/* Fix flex layouts on mobile */
+/* Flex safety: allow page-level rows to shrink without breaking component internals. */
 @media (max-width: 640px) {
-  [class*="flex"] {
-    flex-wrap: wrap !important;
+  main .flex {
+    min-width: 0;
   }
+}
+
+
+/* Production responsive hardening */
+html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+main, section, article, aside, header, footer, nav, form { min-width: 0; }
+img, video, canvas, svg, iframe { max-width: 100%; }
+iframe, video { width: 100%; }
+table { max-width: 100%; }
+pre, code { overflow-wrap: anywhere; }
+@media (max-width: 767px) {
+  .container, .container-padded, .elevate-container { width: 100%; max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
+  .elevate-nav { padding-left: 1rem; padding-right: 1rem; gap: .75rem; }
+  .elevate-hero { padding: 2rem 1rem; }
+  .elevate-hero-title { font-size: clamp(1.875rem, 8vw, 2.5rem); }
+  .elevate-card { padding: 1rem; }
+  [class*="max-w-"] { min-width: 0; }
+  [class*="rounded-3xl"] { border-radius: 1rem; }
+  .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+}
+@media (min-width: 641px) and (max-width: 1023px) {
+  main .grid { min-width: 0; }
+  .container, .container-padded, .elevate-container { width: 100%; }
 }
