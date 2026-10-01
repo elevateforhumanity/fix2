@@ -66,7 +66,7 @@ export default function RotatingHeroBanner() {
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative h-[600px] md:h-[700px] overflow-hidden bg-slate-900">
+    <section className="relative min-h-[560px] sm:min-h-[620px] lg:min-h-[700px] overflow-hidden bg-slate-900">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         {slides.map((s, index) => (
@@ -99,12 +99,12 @@ export default function RotatingHeroBanner() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight animate-fade-in">
               {slide.title}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-2xl md:text-3xl text-orange-400 font-bold mb-4">
+            <p className="text-lg sm:text-xl md:text-3xl text-orange-400 font-bold mb-4">
               {slide.subtitle}
             </p>
 
