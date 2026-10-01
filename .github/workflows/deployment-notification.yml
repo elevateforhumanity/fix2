@@ -3,6 +3,11 @@ name: Deployment Notifications
 on:
   deployment_status:
 
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: write
+
 jobs:
   notify:
     runs-on: ubuntu-latest
@@ -41,7 +46,7 @@ jobs:
       - name: Create deployment summary
         run: |
           cat << EOF > $GITHUB_STEP_SUMMARY
-          # Deployment ${{ steps.deployment.outputs.state == 'success' && '✅ Successful' || '❌ Failed' }}
+          # Deployment status: ${{ steps.deployment.outputs.state }}
           
           **Environment:** ${{ steps.deployment.outputs.environment }}
           **URL:** ${{ steps.deployment.outputs.url }}
@@ -73,7 +78,7 @@ jobs:
               comment.body.includes('Deployment Status')
             );
             
-            const body = `## 🚀 Deployment Status: ${{ steps.deployment.outputs.state == 'success' ? '✅ Success' : '❌ Failed' }}
+            const body = `## Deployment Status: ${{ steps.deployment.outputs.state }}
             
             **Environment:** ${{ steps.deployment.outputs.environment }}
             **URL:** ${{ steps.deployment.outputs.url }}
@@ -102,13 +107,12 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          STATUS_EMOJI="${{ steps.deployment.outputs.state == 'success' && '✅' || '❌' }}"
-          STATUS_TEXT="${{ steps.deployment.outputs.state == 'success' && 'Success' || 'Failed' }}"
+          STATUS_TEXT="${{ steps.deployment.outputs.state }}"
           
           curl -X POST "$SLACK_WEBHOOK_URL" \
             -H 'Content-Type: application/json' \
             -d "{
-              \"text\": \"${STATUS_EMOJI} Deployment ${STATUS_TEXT}\",
+              \"text\": \"Deployment ${STATUS_TEXT}\",
               \"blocks\": [
                 {
                   \"type\": \"section\",
