@@ -89,8 +89,8 @@ export function CalendarWidget({ userId }: CalendarWidgetProps) {
   const selectedDateEvents = selectedDate ? getEventsForDate(selectedDate) : [];
 
   return (
-    <div className="bg-white rounded-lg border border-slate-200 p-6">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-white rounded-lg border border-slate-200 p-3 sm:p-6 min-w-0">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
         <h3 className="text-xl font-bold text-slate-900">Calendar</h3>
         <div className="flex items-center gap-2">
           <button
@@ -100,7 +100,7 @@ export function CalendarWidget({ userId }: CalendarWidgetProps) {
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <span className="text-sm font-medium text-slate-700 min-w-[150px] text-center">
+          <span className="text-sm font-medium text-slate-700 min-w-[120px] sm:min-w-[150px] text-center">
             {monthName}
           </span>
           <button

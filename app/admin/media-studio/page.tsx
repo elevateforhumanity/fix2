@@ -151,7 +151,7 @@ export default function MediaStudioPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
+      <section className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[520px] flex items-center justify-center text-white overflow-hidden">
         <Image
           src="/images/artlist/hero-training-1.jpg"
           alt="Media Studio"
@@ -199,8 +199,8 @@ export default function MediaStudioPage() {
 
         {/* Toolbar */}
         <div className="bg-white rounded-lg border p-4 mb-6">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-4 flex-1">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center lg:flex-1">
               {/* Bucket Selector */}
               <select
                 value={selectedBucket}
@@ -235,7 +235,7 @@ export default function MediaStudioPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex w-full flex-wrap items-center gap-2 lg:w-auto">
               {/* View Mode */}
               <div className="flex gap-1 border rounded-lg p-1">
                 <button
@@ -341,7 +341,7 @@ export default function MediaStudioPage() {
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-lg border">
+          <div className="overflow-x-auto bg-white rounded-lg border">
             <table className="w-full">
               <thead className="bg-gray-50 border-b">
                 <tr>

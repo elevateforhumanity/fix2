@@ -53,7 +53,7 @@ export default function UniversalMarketingPage({
       </section>
 
       {/* HERO */}
-      <section className="relative h-[700px] overflow-hidden">
+      <section className="relative min-h-[480px] sm:min-h-[560px] lg:min-h-[700px] overflow-hidden">
         <Image
           src={heroImage}
           alt={title}
@@ -67,7 +67,7 @@ export default function UniversalMarketingPage({
         <div className="relative h-full flex items-center">
           <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
             <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-light text-white mb-6 leading-tight">
                 {title}
               </h1>
               {subtitle && (
@@ -138,7 +138,7 @@ export default function UniversalMarketingPage({
                     />
                   </div>
                   {section.image && (
-                    <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+                    <div className="relative h-[280px] sm:h-[380px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
                       <Image
                         src={section.image}
                         alt={section.title}
@@ -152,7 +152,7 @@ export default function UniversalMarketingPage({
               ) : (
                 <>
                   {section.image && (
-                    <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+                    <div className="relative h-[280px] sm:h-[380px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
                       <Image
                         src={section.image}
                         alt={section.title}
