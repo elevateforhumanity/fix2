@@ -45,23 +45,18 @@ done
 echo "Running build/lint/typecheck if available..."
 
 if [[ -f package.json ]]; then
-  if npm run -s build >/dev/null 2>&1; then
-    npm run build
-  else
-    echo "NOTE: No build script detected."
-  fi
+  run_if_present() {
+    local script="$1"
+    if node -e "const p=require('./package.json'); process.exit(p.scripts && p.scripts['$script'] ? 0 : 1)"; then
+      pnpm run "$script"
+    else
+      echo "NOTE: No $script script detected."
+    fi
+  }
 
-  if npm run -s lint >/dev/null 2>&1; then
-    npm run lint
-  else
-    echo "NOTE: No lint script detected."
-  fi
-
-  if npm run -s typecheck >/dev/null 2>&1; then
-    npm run typecheck
-  else
-    echo "NOTE: No typecheck script detected."
-  fi
+  run_if_present build
+  run_if_present lint
+  run_if_present typecheck
 else
   echo "FAIL: package.json not found."
   exit 1
