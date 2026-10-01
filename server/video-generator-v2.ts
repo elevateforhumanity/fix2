@@ -26,6 +26,7 @@ export interface VideoScene {
   textPosition: 'center' | 'top' | 'bottom';
   animation: 'fade' | 'slide' | 'zoom' | 'none';
   image?: string;
+  video?: string;
   textStyle?: {
     fontSize: number;
     color: string;
@@ -63,7 +64,13 @@ export interface VideoGenerationResponse {
 export async function generateVideo(
   request: VideoGenerationRequest
 ): Promise<VideoGenerationResponse> {
+  const validation = processTimeline(request.scenes);
+  if (!validation.valid) {
+    return { jobId: 'invalid', status: 'failed', error: validation.errors.join('; '), progress: 0 };
+  }
+
   const jobId = `video-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  updateJobStatus(jobId, { status: 'processing', progress: 1, currentScene: 0, totalScenes: request.scenes.length });
   const tempDir = path.join(process.cwd(), 'temp', jobId);
   const outputDir = path.join(process.cwd(), 'output');
 
@@ -93,7 +100,13 @@ export async function generateVideo(
     let totalDuration = 0;
 
     for (let i = 0; i < request.scenes.length; i++) {
-      const scene = request.scenes[i];
+      const scene = { ...request.scenes[i] };
+      updateJobStatus(jobId, {
+        status: 'processing',
+        currentScene: i + 1,
+        totalScenes: request.scenes.length,
+        progress: Math.max(1, Math.floor((i / request.scenes.length) * 85)),
+      });
 
       // Generate TTS audio if voice-over is enabled
       let audioPath: string | undefined;
@@ -117,6 +130,7 @@ export async function generateVideo(
         animation: scene.animation,
         audioPath: audioPath,
         imagePath: scene.image,
+        videoPath: scene.video,
         textStyle: scene.textStyle,
       };
 
@@ -127,6 +141,8 @@ export async function generateVideo(
       totalDuration += scene.duration;
 
     }
+
+    updateJobStatus(jobId, { status: 'processing', progress: 90 });
 
     // Concatenate all scenes
     const concatenatedPath = path.join(tempDir, 'concatenated.mp4');
@@ -153,6 +169,8 @@ export async function generateVideo(
     await cleanupTempFiles(tempDir);
 
 
+    updateJobStatus(jobId, { status: 'completed', progress: 100, videoPath: finalVideoPath });
+
     return {
       jobId,
       status: 'completed',
@@ -166,10 +184,13 @@ export async function generateVideo(
     // Clean up on error
     await cleanupTempFiles(tempDir).catch(() => {});
 
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    updateJobStatus(jobId, { status: 'failed', progress: 0, error: message });
+
     return {
       jobId,
       status: 'failed',
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: message,
       progress: 0,
     };
   }
