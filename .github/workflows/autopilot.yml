@@ -9,24 +9,42 @@ on:
       - "fix/**"
       - "feat/**"
 
+permissions:
+  contents: read
+
 jobs:
   autopilot:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 8
+      - name: Verify runner
+        shell: bash
+        run: |
+          set -euxo pipefail
+          node --version
+          pnpm --version
+          test -f package.json
+          test -f scripts/autopilot.sh
 
       - name: Install
         run: pnpm install --frozen-lockfile
 
       - name: Autopilot
-        run: ./scripts/autopilot.sh
+        shell: bash
+        run: bash scripts/autopilot.sh
